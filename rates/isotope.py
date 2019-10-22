@@ -569,6 +569,7 @@ class Isotope:
         else:
             return self.symbol[self.charge_number] + str(self.mass_number)
 
+    @property
     def ppn_name(self):
         if self.charge_number is 0 and self.mass_number is 1:
             return "NEUT "
@@ -591,7 +592,7 @@ class Isotope:
         else:
             return "Are you sure this is an isomer???"
 
-    def number(self, force_isomer=False):
+    def numbers(self, force_isomer=False):
         if self.isomer or force_isomer:
             return self.charge_number, self.mass_number, self.isomer
         else:
@@ -635,6 +636,27 @@ class Isotope:
             return False
 
     @classmethod
+    def name(cls, name: any):
+        if isinstance(name, cls):
+            return name
+
+        if name.lower() == "n":
+            return cls(0, 1)
+        elif name.lower() == "p":
+            return cls(1, 1)
+        elif name.lower() == "d":
+            return cls(1, 2)
+        elif name.lower() == "t":
+            return cls(1, 3)
+        else:
+            sym = (
+                "".join([c for c in name if c.isalpha()]).lower().capitalize()
+            )
+            num = "".join([c for c in name if c.isnumeric()])
+            charge_number = Isotope.charge_numbers[sym]
+            return cls(charge_number, int(num))
+
+    @classmethod
     def ppn_name_factory(cls, ppn_name: str):
         ppn_name = ppn_name.strip()
         if ppn_name == "NEUT":
@@ -656,20 +678,6 @@ class Isotope:
                 ppn_name[0:2].strip().lower().capitalize()
             ]
             return cls(charge_number, int(ppn_name[2:5].strip()))
-
-    @classmethod
-    def name(cls, reaclib_name: str):
-        if reaclib_name == "n":
-            return cls(0, 1)
-        elif reaclib_name == "p":
-            return cls(1, 1)
-        else:
-            name = (
-                "".join([c for c in reaclib_name if c.isalpha()]).lower().capitalize()
-            )
-            num = "".join([c for c in reaclib_name if c.isnumeric()])
-            charge_number = Isotope.charge_numbers[name]
-            return cls(charge_number, int(num))
 
     @staticmethod
     def number_to_ppn_name(charge_number, mass_number, isomer=1):
@@ -699,3 +707,4 @@ class Isotope:
 
 if __name__ == "__main__":
     pass
+

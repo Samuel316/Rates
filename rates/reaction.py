@@ -14,16 +14,17 @@ Return
 import numpy as np
 import matplotlib as plt
 
-from isotope import Isotope
+from rates.isotope import Isotope
 
 
 class Reaction:
     def __init__(self, targets: iter, products: iter):
-        self.targets = targets
-        self.products = products
+        self.targets = [Isotope.name(t) for t in targets]
+        self.products = [Isotope.name(t) for t in products]
 
     def __str__(self):
-        return "{0} -> {1}".format("+".join(self.targets), "+".join(self.products))
+        return "{0} -> {1}".format("+".join([str(i) for i in self.targets]),
+                                   "+".join([str(i) for i in self.products]))
 
 
 class ReaclibReaction(Reaction):
@@ -107,4 +108,9 @@ class KadonisReaction(Reaction):
 
 
 if __name__ == "__main__":
-    pass
+
+    n_captures = ['c12', 'c13', 'n15', ]
+    for r in n_captures:
+        reaction = KadonisReaction(r, rr=[1.]*12, err=[.0]*12, label='Test')
+
+        print(reaction)
