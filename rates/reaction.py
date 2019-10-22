@@ -10,6 +10,7 @@ Parameters
 Return
 ------
 """
+
 import numpy as np
 import matplotlib as plt
 
@@ -22,7 +23,7 @@ class Reaction:
         self.products = products
 
     def __str__(self):
-        return "+".join(self.targets) + " -> " + "+".join(self.products)
+        return "{0} -> {1}".format("+".join(self.targets), "+".join(self.products))
 
 
 class ReaclibReaction(Reaction):
@@ -34,11 +35,11 @@ class ReaclibReaction(Reaction):
     def rate(self, temp9: [float, np.asarray]):
         return np.exp(
             self.a[0]
-            + self.a[1] * temp9 ** ((2.0 * (1) - 5.0) / 3.0)
-            + self.a[2] * temp9 ** ((2.0 * (2) - 5.0) / 3.0)
-            + self.a[3] * temp9 ** ((2.0 * (3) - 5.0) / 3.0)
-            + self.a[4] * temp9 ** ((2.0 * (4) - 5.0) / 3.0)
-            + self.a[5] * temp9 ** ((2.0 * (5) - 5.0) / 3.0)
+            + self.a[1] * temp9 ** ((2.0 * 1 - 5.0) / 3.0)
+            + self.a[2] * temp9 ** ((2.0 * 2 - 5.0) / 3.0)
+            + self.a[3] * temp9 ** ((2.0 * 3 - 5.0) / 3.0)
+            + self.a[4] * temp9 ** ((2.0 * 4 - 5.0) / 3.0)
+            + self.a[5] * temp9 ** ((2.0 * 5 - 5.0) / 3.0)
             + self.a[6] * np.log(temp9)
         )
 
@@ -80,8 +81,10 @@ class ReaclibReaction(Reaction):
 
 class KadonisReaction(Reaction):
     def __init__(self, target: str, rr: iter, err: iter, label: str):
-        Isotope(target).mass
-        super().__init__(["n", target])
+        product = Isotope.name(target)
+        product.mass_number += 1
+        super().__init__(["n", target], [product])
+
         self.rr = rr
         self.err = err
         self.label = label
