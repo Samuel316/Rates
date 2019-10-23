@@ -4,15 +4,18 @@
     <enabled-run-configurations>
       <run-configuration type="tests" name="pytest for test_reaction.TestKadonisReaction" />
       <run-configuration type="tests" name="pytest for test_isotope.TestIsotope" />
+      <run-configuration type="tests" name="pytest for test_temperature.TestTemperature.test_false_unit" />
       <run-configuration type="tests" name="pytest in tests" />
+      <run-configuration type="tests" name="pytest for test_temperature.TestTemperature" />
     </enabled-run-configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c9bbf21-c831-43ec-89fa-42e32a2829e7" name="Default Changelist" comment="Added gitignore file">
-      <change beforePath="$PROJECT_DIR$/.idea/Rates.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Rates.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0c9bbf21-c831-43ec-89fa-42e32a2829e7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/test_temperature.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_reaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_reaction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rates/temperature.py" beforeDir="false" afterPath="$PROJECT_DIR$/rates/temperature.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,12 +48,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1672" />
-    <option name="y" value="-8" />
-    <option name="width" value="1378" />
-    <option name="height" value="773" />
-  </component>
   <component name="ProjectId" id="1SYJ1HsRys1qchmKmCmEA1zjuhZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
@@ -59,7 +56,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -79,7 +76,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.pytest in test_isotope.py">
+  <component name="RunManager" selected="Python tests.pytest for test_temperature.TestTemperature.test_false_unit">
     <configuration name="Rates" type="JupiterNotebook" factoryName="Jupyter Notebook">
       <module name="Rates" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -98,7 +95,7 @@
       <option name="ipnbPort" value="8888" />
       <method v="2" />
     </configuration>
-    <configuration name="reaction" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="temperature" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Rates" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -111,7 +108,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rates/reaction.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rates/temperature.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -120,7 +117,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_isotope.TestIsotope" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_temperature.TestTemperature" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Rates" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -132,11 +129,11 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_isotope.TestIsotope&quot;" />
+      <option name="_new_target" value="&quot;test_temperature.TestTemperature&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_reaction.TestKadonisReaction" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_temperature.TestTemperature.test_false_unit" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Rates" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -148,11 +145,11 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_reaction.TestKadonisReaction&quot;" />
+      <option name="_new_target" value="&quot;test_temperature.TestTemperature.test_false_unit&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in test_isotope.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_temperature.TestTemperature.test_init" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Rates" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -164,11 +161,11 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_isotope.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;test_temperature.TestTemperature.test_init&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in test_reaction.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest in test_temperature.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Rates" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -180,7 +177,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_reaction.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_temperature.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -201,20 +198,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.reaction" />
       <item itemvalue="Python tests.pytest in tests" />
-      <item itemvalue="Python tests.pytest for test_isotope.TestIsotope" />
-      <item itemvalue="Python tests.pytest for test_reaction.TestKadonisReaction" />
-      <item itemvalue="Python tests.pytest in test_reaction.py" />
-      <item itemvalue="Python tests.pytest in test_isotope.py" />
+      <item itemvalue="Python tests.pytest for test_temperature.TestTemperature.test_init" />
+      <item itemvalue="Python tests.pytest for test_temperature.TestTemperature" />
+      <item itemvalue="Python tests.pytest in test_temperature.py" />
+      <item itemvalue="Python.temperature" />
+      <item itemvalue="Python tests.pytest for test_temperature.TestTemperature.test_false_unit" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest in test_isotope.py" />
-        <item itemvalue="Python tests.pytest in test_reaction.py" />
-        <item itemvalue="Python tests.pytest for test_reaction.TestKadonisReaction" />
-        <item itemvalue="Python tests.pytest for test_isotope.TestIsotope" />
-        <item itemvalue="Python.reaction" />
+        <item itemvalue="Python tests.pytest for test_temperature.TestTemperature.test_false_unit" />
+        <item itemvalue="Python.temperature" />
+        <item itemvalue="Python tests.pytest in test_temperature.py" />
+        <item itemvalue="Python tests.pytest for test_temperature.TestTemperature" />
+        <item itemvalue="Python tests.pytest for test_temperature.TestTemperature.test_init" />
       </list>
     </recent_temporary>
   </component>
@@ -258,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571745676485</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added gitignore file">
+      <created>1571786002264</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1571786002264</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,8 +289,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added gitignore file" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/rates$pytest_for_test_temperature_TestTemperature.coverage" NAME="pytest for test_temperature.TestTemperature Coverage Results" MODIFIED="1571823599231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/rates$pytest_in_test_isotope_py.coverage" NAME="pytest in test_isotope.py Coverage Results" MODIFIED="1571780767450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/rates$temperature.coverage" NAME="temperature Coverage Results" MODIFIED="1571741525496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rates" />
+    <SUITE FILE_PATH="coverage/rates$pytest_for_test_temperature_TestTemperature_test_init.coverage" NAME="pytest for test_temperature.TestTemperature.test_init Coverage Results" MODIFIED="1571822509172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/rates$pytest_for_test_temperature_TestTemperature_test_false_unit.coverage" NAME="pytest for test_temperature.TestTemperature.test_false_unit Coverage Results" MODIFIED="1571824464276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/rates$temperature.coverage" NAME="temperature Coverage Results" MODIFIED="1571823748788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rates" />
+    <SUITE FILE_PATH="coverage/rates$pytest_in_test_temperature_py.coverage" NAME="pytest in test_temperature.py Coverage Results" MODIFIED="1571823662100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/rates$pytest_in_test_reaction_py.coverage" NAME="pytest in test_reaction.py Coverage Results" MODIFIED="1571780741832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/rates$reaction.coverage" NAME="reaction Coverage Results" MODIFIED="1571736423432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rates" />
   </component>

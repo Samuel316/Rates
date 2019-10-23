@@ -12,17 +12,17 @@ Return
 """
 
 
-class Temperature(float):
+class Temperature:
     def __init__(self, temperature: [int, float], unit: str = 'Gk'):
-        super().__init__()
         if unit is "Gk":
-            super().__init__(temperature)
+            self.gk = temperature
             self._kev = None
         elif unit is "KeV":
-            super().__init__((temperature * 1.160451e-2))
+            self.gk = temperature * 1.160451e-2
             self._kev = temperature
             #  https://physics.nist.gov/cuu/Constants/energy.html
-
+        else:
+            raise Exception('Unsupported unit')
         self.unit = 'Gk'
 
     def __str__(self):
@@ -31,10 +31,11 @@ class Temperature(float):
     @property
     def kev(self):
         if self._kev is None:
-            return self / 1.160451e-2
+            self._kev = self.gk / 1.160451e-2
+            return self._kev
         elif self._kev is not None:
             return self._kev
 
 
 if __name__ == "__main__":
-    print(Temperature(30, unit='KeV').kev)
+    print(Temperature(30, 'KeV').gk)
