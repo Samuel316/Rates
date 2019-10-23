@@ -56,6 +56,3 @@ class TestKadonisReaction:
 
             assert str(reaction) == r
 
-
-if __name__ == "__main__":
-    pass

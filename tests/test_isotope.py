@@ -41,5 +41,6 @@ class TestIsotope:
             isotope = Isotope.name(n)
             assert str(isotope) == n_out
 
+
 if __name__ == "__main__":
     pass
