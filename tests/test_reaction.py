@@ -45,7 +45,28 @@ class TestReaction:
 
 
 class TestReaclibReaction:
-    pass
+    def test_init(self):
+        for r, s in zip(reactions, strings):
+            reaction = ReaclibReaction(r[0], r[1], a_rates=[1] * 7, label="Test")
+
+            assert str(reaction) == s
+            assert reaction.label == "Test"
+            assert reaction.rate(0.3) == 307.0581685280525
+
+    def test_reaclib_factory(self):
+        assert (
+            ReaclibReaction.reaclib_factory(
+                1, ["n", "p"], a_rates=[0, 0, 0, 0, 0]
+            ).__str__()
+            == "n -> p"
+        )
+
+        assert (
+            ReaclibReaction.reaclib_factory(
+                11, ["fe45", "p", "p", "p", "ti42"], a_rates=[0, 0, 0, 0, 0]
+            ).__str__()
+            == "Fe45 -> p+p+p+Ti42"
+        )
 
 
 class TestKadonisReaction:

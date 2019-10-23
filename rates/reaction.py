@@ -15,6 +15,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from rates.isotope import Isotope
+from rates.temperature import Temperature
 
 
 class Reaction:
@@ -27,6 +28,16 @@ class Reaction:
             "+".join([str(i) for i in self.targets]),
             "+".join([str(i) for i in self.products]),
         )
+
+    def mpl_plt(self, ax=None, temp_units="Gk", **kwargs):
+        ax = ax or plt.gca()
+        ax.set_title("Reaction Rate")
+        ax.set_ylabel("Rate ($cm^3\;mol^{-1}\;sec^{-1}$)")
+
+        if temp_units is "Gk":
+            ax.set_xlabel("Temperature ($GK$)")
+
+        ax.legend()
 
 
 class ReaclibReaction(Reaction):
@@ -46,15 +57,23 @@ class ReaclibReaction(Reaction):
             + self.a[6] * np.log(temp9)
         )
 
-    def mpl_plot(self, ax=None, **kwargs):
-        t = np.logspace(-1, 1, 1000)
-
+    def mpl_plot(self, ax=None, temp_unit="GK", **kwargs):
         ax = ax or plt.gca()
-        ax.set_title("Reaction Rate")
-        ax.set_ylabel("Rate ($cm^3\;mol^{-1}\;sec^{-1}$)")
-        ax.set_xlabel("Temperature ($GK$)")
-        ax.loglog(t, self.rate(t), label=self.label + " " + self.__str__(), **kwargs)
-        ax.legend()
+
+        t = np.logspace(-1, 1, 1000)
+        if temp_unit is "GK":
+            ax.loglog(
+                t, self.rate(t), label=self.label + " " + self.__str__(), **kwargs
+            )
+        elif temp_unit is "KeV":
+            ax.loglog(
+                Temperature(t).kev,
+                self.rate(t),
+                label=self.label + " " + self.__str__(),
+                **kwargs
+            )
+
+        super().mpl_plt(ax=ax, temp_unit=temp_unit)
 
     @classmethod
     def reaclib_factory(cls, chapter: int, ei: iter, a_rates: iter, label: str = None):
@@ -63,7 +82,7 @@ class ReaclibReaction(Reaction):
         elif chapter is 2:
             return cls([ei[0]], ei[1:3], a_rates, label)
         elif chapter is 3:
-            return cls([ei[0]], [ei[1:4]], a_rates, label)
+            return cls([ei[0]], ei[1:4], a_rates, label)
         elif chapter is 4:
             return cls(ei[0:2], [ei[2]], a_rates, label)
         elif chapter is 5:

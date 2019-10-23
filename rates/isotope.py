@@ -557,7 +557,7 @@ class Isotope:
     ) -> None:
         if float(charge_number) > 118:
             raise ValueError("Element has no name", charge_number)
-        if float(mass_number) > 300:
+        if float(mass_number) > 350:
             raise ValueError("Mass seems a bit high", mass_number)
         self.charge_number = int(float(charge_number))
         self.mass_number = int(float(mass_number))
@@ -570,6 +570,10 @@ class Isotope:
             return "n"
         elif self.charge_number == 1 and self.mass_number == 1:
             return "p"
+        elif self.charge_number == 1 and self.mass_number == 2:
+            return "d"
+        elif self.charge_number == 1 and self.mass_number == 3:
+            return "t"
         else:
             return self.symbol[self.charge_number] + str(self.mass_number)
 

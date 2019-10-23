@@ -12,22 +12,34 @@ Return
 """
 import pandas as pd
 
-from .reaction import Reaction
+from pathlib import Path
+
+from rates.isotope import Isotope
+from rates.reaction import ReaclibReaction
 
 
 class Reaclib:
-    def __init__(self, file_path: str):
+    def __init__(self, file_path: [str, Path]):
+        self.file_path = Path(file_path)
         self.df = pd.read_pickle(file_path)
 
-    def __getitem__(self, key):
-        return self.df[key]
+    def __getitem__(self, reaction):
+        return self.df
 
-    @property
-    def reactions(self):
-        return self.df.reactions
+    def get_n_gamma(self, target) -> ReaclibReaction:
+        target = Isotope.name(target)
+        try:
+            return self.df[
+                (self.df.Chapter == 4)
+                & (self.df.E0 == "n")
+                & (self.df.E1 == str(target))
+            ].Reaction.iloc[0]
+        except IndexError:
+            raise Exception(str(target) + " Not found in file")
 
     @classmethod
     def read_file(cls, file_path: str):
+        file_path = Path(file_path)
 
         reaclib = {}
 
@@ -80,7 +92,7 @@ class Reaclib:
 
         df = pd.DataFrame(reaclib)
         df["Reaction"] = df.apply(
-            lambda df: Reaction.reaclib_factory(
+            lambda df: ReaclibReaction.reaclib_factory(
                 chapter=df.Chapter,
                 ei=[df.E0, df.E1, df.E2, df.E3, df.E4, df.E5],
                 a_rates=df.Rate,
@@ -88,9 +100,9 @@ class Reaclib:
             ),
             axis=1,
         )
-        df.to_pickle(file_path[0:-3])
-
-        return cls(file_path[0:-3])
+        pickle_path = "{0}.temp".format(str(file_path.parent / file_path.stem))
+        df.to_pickle(pickle_path)
+        return cls(file_path=pickle_path)
 
 
 if __name__ == "__main__":

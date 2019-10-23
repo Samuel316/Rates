@@ -11,6 +11,7 @@ Return
 ------
 """
 import pytest
+import numpy as np
 
 from rates.temperature import Temperature
 
@@ -34,6 +35,21 @@ class TestTemperature:
             Temperature(10, "k")
 
             Temperature(10, "z")
+
+    def test_array_input(self):
+        temp = np.logspace(-1, 1, 10)
+        assert list(Temperature(temp).kev) == [
+            8.61733929308519,
+            14.374588304030578,
+            23.978258471983086,
+            39.998145838236844,
+            66.72092855976918,
+            111.29721677303773,
+            185.65494708797556,
+            309.69111697130046,
+            516.5959185859126,
+            861.7339293085188,
+        ]
 
 
 if __name__ == "__main__":
