@@ -10,9 +10,9 @@ Parameters
 Return
 ------
 """
-
+import copy
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 from rates.isotope import Isotope
 
@@ -23,8 +23,10 @@ class Reaction:
         self.products = [Isotope.name(t) for t in products]
 
     def __str__(self):
-        return "{0} -> {1}".format("+".join([str(i) for i in self.targets]),
-                                   "+".join([str(i) for i in self.products]))
+        return "{0} -> {1}".format(
+            "+".join([str(i) for i in self.targets]),
+            "+".join([str(i) for i in self.products]),
+        )
 
 
 class ReaclibReaction(Reaction):
@@ -81,19 +83,14 @@ class ReaclibReaction(Reaction):
 
 
 class KadonisReaction(Reaction):
-    def __init__(self, target: str, rr: iter, err: iter, label: str):
-        product = Isotope.name(target)
+    def __init__(self, target: [str, Isotope], rr: iter, err: iter):
+        product = copy.deepcopy(Isotope.name(target))
         product.mass_number += 1
         super().__init__(["n", target], [product])
 
         self.rr = rr
         self.err = err
-        self.label = label
         self.temperature = [5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100]
-
-    def rate(self):
-        # TODO: interpolation
-        return
 
     def mpl_plot(self, ax=None, **kwargs):
 
@@ -101,16 +98,19 @@ class KadonisReaction(Reaction):
         ax.set_title("Reaction Rate")
         ax.set_ylabel("Rate ($cm^3\;mol^{-1}\;sec^{-1}$)")
         ax.set_xlabel("Temperature ($KeV$)")
-        ax.loglog(
-            self.temperature, self.rr, label=self.label + " " + self.__str__(), **kwargs
+        ax.errorbar(
+            self.temperature, self.rr, yerr=self.err, label=self.__str__(), **kwargs
         )
+        ax.set_yscale("log")
+
         ax.legend()
+        return ax
 
 
 if __name__ == "__main__":
 
-    n_captures = ['c12', 'c13', 'n15', ]
+    n_captures = ["c12", "c13", "n15"]
     for r in n_captures:
-        reaction = KadonisReaction(r, rr=[1.]*12, err=[.0]*12, label='Test')
+        reaction = KadonisReaction(r, rr=[1.0] * 12, err=[0.0] * 12)
 
         print(reaction)

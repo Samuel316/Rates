@@ -565,7 +565,11 @@ class Isotope:
 
     def __str__(self):
         if self.mass_number is 0:
-            return " "
+            return None
+        elif self.charge_number == 0 and self.mass_number == 1:
+            return "n"
+        elif self.charge_number == 1 and self.mass_number == 1:
+            return "p"
         else:
             return self.symbol[self.charge_number] + str(self.mass_number)
 
@@ -649,9 +653,7 @@ class Isotope:
         elif name.lower() == "t":
             return cls(1, 3)
         else:
-            sym = (
-                "".join([c for c in name if c.isalpha()]).lower().capitalize()
-            )
+            sym = "".join([c for c in name if c.isalpha()]).lower().capitalize()
             num = "".join([c for c in name if c.isnumeric()])
             charge_number = Isotope.charge_numbers[sym]
             return cls(charge_number, int(num))
@@ -707,4 +709,3 @@ class Isotope:
 
 if __name__ == "__main__":
     pass
-

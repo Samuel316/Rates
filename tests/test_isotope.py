@@ -22,7 +22,7 @@ class TestIsotope:
     isomers = [False, False, False, False, True, True]
 
     names = ["c12", "C12", "p", "P", "n", "N"]
-    names_out = ["C12", "C12", "H1", "H1", "n1", "n1"]
+    names_out = ["C12", "C12", "p", "p", "n", "n"]
 
     def test_init_to_ppn(self):
         for iso, isomer, out in zip(self.isotopes, self.isomers, self.ppn_outputs):
@@ -40,6 +40,9 @@ class TestIsotope:
         for n, n_out in zip(self.names, self.names_out):
             isotope = Isotope.name(n)
             assert str(isotope) == n_out
+
+    def test_class_reinput_to_name(self):
+        assert str(Isotope.name(Isotope(7, 14))) == "N14"
 
 
 if __name__ == "__main__":
