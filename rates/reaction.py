@@ -75,6 +75,8 @@ class ReaclibReaction(Reaction):
 
         super().mpl_plt(ax=ax, temp_unit=temp_unit)
 
+        return ax
+
     @classmethod
     def reaclib_factory(cls, chapter: int, ei: iter, a_rates: iter, label: str = None):
         if chapter is 1:
