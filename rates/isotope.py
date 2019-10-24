@@ -15,6 +15,10 @@ import numpy as np
 
 
 class Isotope:
+    """
+
+    """
+
     charge_numbers = {
         "n": 0,
         "H": 1,
@@ -579,6 +583,12 @@ class Isotope:
 
     @property
     def ppn_name(self):
+        """
+
+        Returns
+        -------
+
+        """
         if self.charge_number is 0 and self.mass_number is 1:
             return "NEUT "
         elif self.charge_number is 1 and self.mass_number is 1:
@@ -601,12 +611,32 @@ class Isotope:
             return "Are you sure this is an isomer???"
 
     def numbers(self, force_isomer=False):
+        """
+
+        Parameters
+        ----------
+        force_isomer
+
+        Returns
+        -------
+
+        """
         if self.isomer or force_isomer:
             return self.charge_number, self.mass_number, self.isomer
         else:
             return self.charge_number, self.mass_number
 
     def decay(self, primordial_as_stable=True):
+        """
+
+        Parameters
+        ----------
+        primordial_as_stable
+
+        Returns
+        -------
+
+        """
         # TODO: This only works from beta decay and beta unstable isotopes
         # Currently the time scale of the decay is assumed to ber a small fraction of the
         # half life of primordial isotopes.
@@ -631,6 +661,12 @@ class Isotope:
 
     @property
     def is_stable(self):
+        """
+
+        Returns
+        -------
+
+        """
         if (self.charge_number, self.mass_number) in self.stable_isotopes:
             return True
         else:
@@ -638,6 +674,12 @@ class Isotope:
 
     @property
     def is_primordial(self):
+        """
+
+        Returns
+        -------
+
+        """
         if (self.charge_number, self.mass_number) in self.primordial:
             return True
         else:
@@ -645,6 +687,16 @@ class Isotope:
 
     @classmethod
     def name(cls, name: any):
+        """
+
+        Parameters
+        ----------
+        name
+
+        Returns
+        -------
+
+        """
         if isinstance(name, cls):
             return name
 
@@ -664,6 +716,16 @@ class Isotope:
 
     @classmethod
     def ppn_name_factory(cls, ppn_name: str):
+        """
+
+        Parameters
+        ----------
+        ppn_name
+
+        Returns
+        -------
+
+        """
         ppn_name = ppn_name.strip()
         if ppn_name == "NEUT":
             return cls(0, 1)
@@ -679,14 +741,26 @@ class Isotope:
                 ppn_name[0:2].strip().lower().capitalize()
             ]
             return cls(charge_number, int("1" + ppn_name[3:5].strip()), True)
-        else:
-            charge_number = Isotope.charge_numbers[
-                ppn_name[0:2].strip().lower().capitalize()
-            ]
-            return cls(charge_number, int(ppn_name[2:5].strip()))
+
+        charge_number = Isotope.charge_numbers[
+            ppn_name[0:2].strip().lower().capitalize()
+        ]
+        return cls(charge_number, int(ppn_name[2:5].strip()))
 
     @staticmethod
     def number_to_ppn_name(charge_number, mass_number, isomer=1):
+        """
+
+        Parameters
+        ----------
+        charge_number
+        mass_number
+        isomer
+
+        Returns
+        -------
+
+        """
         if int(isomer) == 1:
             iso = False
         elif int(isomer) == 2:
@@ -696,18 +770,40 @@ class Isotope:
                 "No valid input for isomer, should be 1 for False or 2 for True", isomer
             )
 
-        return Isotope(charge_number, mass_number, iso).ppn_name()
+        return Isotope(charge_number, mass_number, iso).ppn_name
 
     @staticmethod
-    def ppn_name_to_number(ppn_name):
-        return Isotope.ppn_name_factory(ppn_name).number()
+    def ppn_name_to_numbers(ppn_name):
+        """
+
+        Parameters
+        ----------
+        ppn_name
+
+        Returns
+        -------
+
+        """
+        return Isotope.ppn_name_factory(ppn_name).numbers()
 
     @staticmethod
     def decay_isotope(charge_number, mass_number, isomer):
+        """
+
+        Parameters
+        ----------
+        charge_number
+        mass_number
+        isomer
+
+        Returns
+        -------
+
+        """
         return (
             Isotope(charge_number, mass_number, isomer)
             .decay()
-            .number(force_isomer=True)
+            .numbers(force_isomer=True)
         )
 
 
