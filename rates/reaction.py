@@ -111,18 +111,31 @@ class KadonisReaction(Reaction):
         self.err = err
         self.temperature = [5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100]
 
-    def mpl_plot(self, ax=None, **kwargs):
+    def mpl_plot(self, ax=None, temp_unit="KeV", **kwargs):
 
         ax = ax or plt.gca()
-        ax.set_title("Reaction Rate")
-        ax.set_ylabel("Rate ($cm^3\;mol^{-1}\;sec^{-1}$)")
-        ax.set_xlabel("Temperature ($KeV$)")
-        ax.errorbar(
-            self.temperature, self.rr, yerr=self.err, label=self.__str__(), **kwargs
-        )
+
+        if temp_unit is "GK":
+            ax.errorbar(
+                Temperature(np.array(self.temperature), unit="KeV").gk,
+                self.rr,
+                yerr=self.err,
+                label="Kadonis {0}".format(self.__str__()),
+                **kwargs
+            )
+        elif temp_unit is "KeV":
+            ax.errorbar(
+                self.temperature,
+                self.rr,
+                yerr=self.err,
+                label="Kadonis {0}".format(self.__str__()),
+                **kwargs
+            )
+
         ax.set_yscale("log")
 
-        ax.legend()
+        super().mpl_plt(ax, temp_units=temp_unit)
+
         return ax
 
 

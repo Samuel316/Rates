@@ -13,7 +13,7 @@ Return
 
 
 class Temperature:
-    def __init__(self, temperature: [int, float], unit: str = 'Gk'):
+    def __init__(self, temperature: [int, float], unit: str = "Gk"):
         if unit is "Gk":
             self.gk = temperature
             self._kev = None
@@ -22,8 +22,8 @@ class Temperature:
             self._kev = temperature
             #  https://physics.nist.gov/cuu/Constants/energy.html
         else:
-            raise Exception('Unsupported unit')
-        self.unit = 'Gk'
+            raise Exception("Unsupported unit")
+        self.unit = "Gk"
 
     def __str__(self):
         return str(self) + self.unit
@@ -35,7 +35,3 @@ class Temperature:
             return self._kev
         elif self._kev is not None:
             return self._kev
-
-
-if __name__ == "__main__":
-    print(Temperature(30, 'KeV').gk)

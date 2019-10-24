@@ -32,7 +32,7 @@ class Reaclib:
             return self.df[
                 (self.df.Chapter == 4)
                 & (self.df.E0 == "n")
-                & (self.df.E1 == str(target))
+                & (self.df.E1 == str(target).lower())
             ].Reaction.iloc[0]
         except IndexError:
             raise Exception(str(target) + " Not found in file")
