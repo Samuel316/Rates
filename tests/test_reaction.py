@@ -26,8 +26,8 @@ reactions = [
 
 strings = [
     "n -> p",
-    "n+p -> H2",
-    "H2+H2 -> n+He3",
+    "n+p -> d",
+    "d+d -> n+He3",
     "He3+He3 -> p+p+He4",
     "He4+He4+He4 -> C12",
 ]

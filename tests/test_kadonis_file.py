@@ -34,7 +34,7 @@ class TestKadonis:
     def test_reaction(self):
         k = Kadonis.read_file(kadonis_file)
 
-        assert str(k.df.Reaction.iloc[0]) == "n+p -> H2"
+        assert str(k.df.Reaction.iloc[0]) == "n+p -> d"
         assert str(k.df.Reaction.iloc[3]) == "n+Li6 -> Li7"
 
     def test_getitem(self):
