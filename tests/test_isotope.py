@@ -44,6 +44,33 @@ class TestIsotope:
     def test_class_reinput_to_name(self):
         assert str(Isotope.name(Isotope(7, 14))) == "N14"
 
+    def test_str(self):
+        assert str(Isotope(7, 14)) == "N14"
 
-if __name__ == "__main__":
-    pass
+        assert str(Isotope(4, 9)) == "Be9"
+
+    def test_numbers(self):
+
+        assert Isotope(7, 14).numbers() == (7, 14)
+
+        assert Isotope(6, 12, True).numbers() == (6, 12, True)
+
+        assert Isotope(6, 12, False).numbers(force_isomer=True) == (6, 12, False)
+
+    def test_decay(self):
+        assert Isotope(9, 26).decay().numbers() == (12, 26)
+
+        assert Isotope(4, 8).decay().numbers() == (2, 4)
+
+        assert Isotope(14, 26).decay().numbers() == (12, 26)
+
+        # This asserts the code is not working physically but as intended
+        assert Isotope(20, 36).decay().numbers() == (16, 36)
+
+    def test_is_stable(self):
+        for s, j in Isotope.stable_isotopes:
+            assert Isotope(s, j).is_stable
+
+    def test_is_primordial(self):
+        for s, j in Isotope.primordial:
+            assert Isotope(s, j).is_primordial

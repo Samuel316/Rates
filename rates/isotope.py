@@ -569,17 +569,19 @@ class Isotope:
 
     def __str__(self):
         if self.mass_number is 0:
-            return None
+            name = None
         elif self.charge_number == 0 and self.mass_number == 1:
-            return "n"
+            name = "n"
         elif self.charge_number == 1 and self.mass_number == 1:
-            return "p"
+            name = "p"
         elif self.charge_number == 1 and self.mass_number == 2:
-            return "d"
+            name = "d"
         elif self.charge_number == 1 and self.mass_number == 3:
-            return "t"
+            name = "t"
         else:
-            return self.symbol[self.charge_number] + str(self.mass_number)
+            name = self.symbol[self.charge_number] + str(self.mass_number)
+
+        return name
 
     @property
     def ppn_name(self):
@@ -649,7 +651,7 @@ class Isotope:
 
         if self.is_stable or self.is_primordial:
             pass
-        elif int(self.mass_number) == 8:
+        elif self.mass_number == 8:
             self.mass_number = 4
             self.charge_number = 2
             return self

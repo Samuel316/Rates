@@ -104,14 +104,20 @@ class ReaclibReaction(Reaction):
 
 
 class KadonisReaction(Reaction):
-    def __init__(self, target: [str, Isotope], rr: iter, err: iter):
+    def __init__(
+        self,
+        target: [str, Isotope],
+        rr: iter,
+        err: iter,
+        temp: iter = (5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100),
+    ):
         product = copy.deepcopy(Isotope.name(target))
         product.mass_number += 1
         super().__init__(["n", target], [product])
 
         self.rr = rr
         self.err = err
-        self.temperature = [5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100]
+        self.temperature = temp
 
     def mpl_plot(self, ax=None, temp_unit="KeV", **kwargs):
 
