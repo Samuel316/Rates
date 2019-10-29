@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding=utf-8
 """
 Copyright Samuel Lloyd
 s1887484, 21/10/2019
@@ -19,6 +20,23 @@ from rates.temperature import Temperature
 
 
 class Reaction:
+    """The default reaction class.
+
+    Parameters
+    ----------
+    targets : List of str or Isotope
+        List of all the target isotopes including n and p.
+    products : List of str or Isotope
+        List of all the product isotopes including n and p.
+
+    Attributes
+    ----------
+    mpl_plt : matplotlib axis
+
+
+    
+    """
+
     def __init__(self, targets: iter, products: iter):
         self.targets = [Isotope.name(t) for t in targets]
         self.products = [Isotope.name(t) for t in products]
@@ -30,6 +48,14 @@ class Reaction:
         )
 
     def mpl_plt(self, ax=None, temp_units="Gk", **kwargs):
+        """
+
+        Parameters
+        ----------
+        ax :
+        temp_units :
+        kwargs :
+        """
         ax = ax or plt.gca()
         ax.set_title("Reaction Rate")
         ax.set_ylabel("Rate ($cm^3\;mol^{-1}\;sec^{-1}$)")
@@ -41,12 +67,26 @@ class Reaction:
 
 
 class ReaclibReaction(Reaction):
+    """
+
+    """
+
     def __init__(self, targets: iter, products: iter, a_rates: iter, label: str):
         super().__init__(targets, products)
         self.a = a_rates
         self.label = label
 
     def rate(self, temp9: [float, np.asarray]):
+        """
+
+        Parameters
+        ----------
+        temp9 :
+
+        Returns
+        -------
+
+        """
         return np.exp(
             self.a[0]
             + self.a[1] * temp9 ** ((2.0 * 1 - 5.0) / 3.0)
@@ -58,6 +98,18 @@ class ReaclibReaction(Reaction):
         )
 
     def mpl_plot(self, ax=None, temp_unit="GK", **kwargs):
+        """
+
+        Parameters
+        ----------
+        ax :
+        temp_unit :
+        kwargs :
+
+        Returns
+        -------
+
+        """
         ax = ax or plt.gca()
 
         t = np.logspace(-1, 1, 1000)
@@ -79,6 +131,19 @@ class ReaclibReaction(Reaction):
 
     @classmethod
     def reaclib_factory(cls, chapter: int, ei: iter, a_rates: iter, label: str = None):
+        """
+
+        Parameters
+        ----------
+        chapter :
+        ei :
+        a_rates :
+        label :
+
+        Returns
+        -------
+
+        """
         if chapter is 1:
             return cls([ei[0]], [ei[1]], a_rates, label)
         elif chapter is 2:
@@ -104,12 +169,18 @@ class ReaclibReaction(Reaction):
 
 
 class KadonisReaction(Reaction):
+    """
+
+    """
+
     def __init__(
         self,
         target: [str, Isotope],
         rr: iter,
         err: iter,
         temp: iter = (5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100),
+        temp_units: str = "KeV",
+        label: str = "Kadonis",
     ):
         product = copy.deepcopy(Isotope.name(target))
         product.mass_number += 1
@@ -118,25 +189,38 @@ class KadonisReaction(Reaction):
         self.rr = rr
         self.err = err
         self.temperature = temp
+        self.temp_unit = temp_units
+        self.label = label
 
-    def mpl_plot(self, ax=None, temp_unit="KeV", **kwargs):
+    def mpl_plot(self, ax=None, temp_unit="Gk", **kwargs):
+        """
 
+        Parameters
+        ----------
+        ax :
+        temp_unit :
+        kwargs :
+
+        Returns
+        -------
+
+        """
         ax = ax or plt.gca()
 
-        if temp_unit is "GK":
+        if temp_unit is "Gk":
             ax.errorbar(
-                Temperature(np.array(self.temperature), unit="KeV").gk,
+                Temperature(np.array(self.temperature), unit=self.temp_unit).gk,
                 self.rr,
                 yerr=self.err,
-                label="Kadonis {0}".format(self.__str__()),
+                label="{0} {1}".format(self.label, self.__str__()),
                 **kwargs
             )
         elif temp_unit is "KeV":
             ax.errorbar(
-                self.temperature,
+                Temperature(np.array(self.temperature), unit=self.temp_unit).kev,
                 self.rr,
                 yerr=self.err,
-                label="Kadonis {0}".format(self.__str__()),
+                label="{0} {1}".format(self.label, self.__str__()),
                 **kwargs
             )
 
@@ -145,12 +229,3 @@ class KadonisReaction(Reaction):
         super().mpl_plt(ax, temp_units=temp_unit)
 
         return ax
-
-
-if __name__ == "__main__":
-
-    n_captures = ["c12", "c13", "n15"]
-    for r in n_captures:
-        reaction = KadonisReaction(r, rr=[1.0] * 12, err=[0.0] * 12)
-
-        print(reaction)

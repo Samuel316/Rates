@@ -10,26 +10,57 @@ Parameters
 Return
 ------
 """
+from numbers import Real
+
+import numpy
 
 
 class Temperature:
-    def __init__(self, temperature: [int, float], unit: str = "Gk"):
-        if unit is "Gk":
+    """Converts Gk to Kev or the reverse.
+
+    Attributes
+    ----------
+    gk : [Real, numpy.array]
+        Temperature in units of 'Gk'.
+    kev : [Real, numpy.array]
+        Temperature in units of 'KeV'.
+
+    """
+
+    def __init__(self, temperature: [Real, numpy.array], unit: str = "Gk") -> None:
+        """
+
+        Parameters
+        ----------
+        temperature : [Real, numpy.array]
+            the temperature(s) to convert.
+        unit : str {"Gk", "KeV"}
+
+        """
+        if unit == "Gk":
             self.gk = temperature
             self._kev = None
-        elif unit is "KeV":
+        elif unit == "KeV":
             self.gk = temperature * 1.160451e-2
             self._kev = temperature
             #  https://physics.nist.gov/cuu/Constants/energy.html
         else:
-            raise Exception("Unsupported unit")
+            raise Exception(unit + " is unsupported")
         self.unit = "Gk"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self) + self.unit
 
     @property
-    def kev(self):
+    def kev(self) -> [Real, numpy.array]:
+        """Temperature in Kev.
+
+        Returns
+        -------
+        [Real, numpy.array]
+            Value of temperature in KeV
+        """
+
         if self._kev is None:
             self._kev = self.gk / 1.160451e-2
             return self._kev

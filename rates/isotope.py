@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding=utf-8
 """
 Copyright Samuel Lloyd
 s1887484, 21/10/2019
@@ -11,11 +12,23 @@ Return
 ------
 """
 
+from typing import Tuple, Union
+from numbers import Real
+
 import numpy as np
 
 
 class Isotope:
-    """
+    """Representation of an isotope.
+
+        Attributes
+        ----------
+        charge_number : int
+            Proton number of the Isotope.
+        mass_number : int
+            Mass number of the Isotope
+        isomer : bool
+            True if the Isotope is an Isomer.
 
     """
 
@@ -557,8 +570,20 @@ class Isotope:
     )
 
     def __init__(
-        self, charge_number: int, mass_number: int, isomer: bool = False
+        self, charge_number: Real, mass_number: Real, isomer: bool = False
     ) -> None:
+        """
+        Parameters
+        ----------
+        charge_number : [int, float]
+        mass_number : [int, float]
+        isomer : bool
+
+        Returns
+        -------
+        self
+        """
+
         if float(charge_number) > 118:
             raise ValueError("Element has no name", charge_number)
         if float(mass_number) > 350:
@@ -567,8 +592,14 @@ class Isotope:
         self.mass_number = int(float(mass_number))
         self.isomer = isomer
 
-    def __str__(self):
-        if self.mass_number is 0:
+    def __str__(self) -> str:
+        """
+
+        Returns
+        -------
+        str
+        """
+        if self.mass_number == 0:
             name = None
         elif self.charge_number == 0 and self.mass_number == 1:
             name = "n"
@@ -584,59 +615,67 @@ class Isotope:
         return name
 
     @property
-    def ppn_name(self):
-        """
+    def ppn_name(self) -> str:
+        """ Name of isotope in ppn file format.
 
         Returns
         -------
-
+        str
         """
-        if self.charge_number is 0 and self.mass_number is 1:
-            return "NEUT "
-        elif self.charge_number is 1 and self.mass_number is 1:
-            return "PROT "
+        iso = "Are you sure this is an isomer???"
+
+        if self.charge_number == 0 and self.mass_number == 1:
+            iso = "NEUT "
+        elif self.charge_number == 1 and self.mass_number == 1:
+            iso = "PROT "
         elif self.isomer is False:
-            return self.symbol[self.charge_number].upper().ljust(2) + str(
+            iso = self.symbol[self.charge_number].upper().ljust(2) + str(
                 self.mass_number
             ).rjust(3)
-        elif self.isomer is True and self.charge_number is not 73:
-            return (
+        elif self.isomer is True and self.charge_number != 73:
+            iso = (
                 self.symbol[self.charge_number].upper()
                 + "*"
                 + str(self.mass_number)[-2:]
             )
         elif (
-            self.isomer is True and self.charge_number is 73 and self.mass_number is 180
+            self.isomer is True and self.charge_number == 73 and self.mass_number == 180
         ):
-            return "TAg80"
-        else:
-            return "Are you sure this is an isomer???"
+            iso = "TAg80"
 
-    def numbers(self, force_isomer=False):
+        return iso
+
+    def numbers(
+        self, force_isomer: bool = False
+    ) -> Union[Tuple[int, int], Tuple[int, int, bool]]:
         """
 
         Parameters
         ----------
-        force_isomer
+        force_isomer : bool
+            Forces output to include Isomer value when False.
 
         Returns
         -------
+        Union[Tuple[int, int], Tuple[int, int, bool]]
+
 
         """
         if self.isomer or force_isomer:
             return self.charge_number, self.mass_number, self.isomer
-        else:
-            return self.charge_number, self.mass_number
 
-    def decay(self, primordial_as_stable=True):
+        return self.charge_number, self.mass_number
+
+    def decay(self, primordial_as_stable: bool = True) -> "Isotope":
         """
 
         Parameters
         ----------
-        primordial_as_stable
+        primordial_as_stable : bool
 
         Returns
         -------
+        Isotope
 
         """
         # TODO: This only works from beta decay and beta unstable isotopes
@@ -645,7 +684,6 @@ class Isotope:
         stable = self.stable_isotopes + self.primordial
         stable = np.array(stable)
         stable = stable[stable[:, 0].argsort()]
-
         # TODO: Isomers
         self.isomer = False
 
@@ -654,7 +692,6 @@ class Isotope:
         elif self.mass_number == 8:
             self.mass_number = 4
             self.charge_number = 2
-            return self
         else:
             product = stable[np.where(stable[:, 1] == self.mass_number)][0]
             self.mass_number = product[1]
@@ -662,105 +699,113 @@ class Isotope:
         return self
 
     @property
-    def is_stable(self):
-        """
+    def is_stable(self) -> bool:
+        """ Returns True if isotope is stable.
 
         Returns
         -------
+        bool
 
         """
         if (self.charge_number, self.mass_number) in self.stable_isotopes:
             return True
-        else:
-            return False
+        return False
 
     @property
-    def is_primordial(self):
-        """
+    def is_primordial(self) -> bool:
+        """Returns True is isotope is primordial.
 
         Returns
         -------
+        bool
 
         """
         if (self.charge_number, self.mass_number) in self.primordial:
             return True
-        else:
-            return False
+        return False
 
     @classmethod
-    def name(cls, name: any):
-        """
+    def name(cls, name: Union[str, "Isotope"]) -> "Isotope":
+        """ Factory method from string representation.
 
         Parameters
         ----------
-        name
+        name : str
+            Name of isotope, order and capitalisation don't matter.
 
         Returns
         -------
+        Isotope
 
         """
         if isinstance(name, cls):
-            return name
-
-        if name.lower() == "n":
-            return cls(0, 1)
+            iso = name
+        elif name.lower() == "n":
+            iso = cls(0, 1)
         elif name.lower() == "p":
-            return cls(1, 1)
+            iso = cls(1, 1)
         elif name.lower() == "d":
-            return cls(1, 2)
+            iso = cls(1, 2)
         elif name.lower() == "t":
-            return cls(1, 3)
+            iso = cls(1, 3)
         else:
             sym = "".join([c for c in name if c.isalpha()]).lower().capitalize()
             num = "".join([c for c in name if c.isnumeric()])
             charge_number = Isotope.charge_numbers[sym]
-            return cls(charge_number, int(num))
+            iso = cls(charge_number, int(num))
+
+        return iso
 
     @classmethod
-    def ppn_name_factory(cls, ppn_name: str):
-        """
+    def ppn_name_factory(cls, ppn_name: str) -> "Isotope":
+        """Factory method from PPN fixed width file representation.
 
         Parameters
         ----------
-        ppn_name
+        ppn_name : str
 
         Returns
         -------
-
+        Isotope
         """
         ppn_name = ppn_name.strip()
         if ppn_name == "NEUT":
-            return cls(0, 1)
+            iso = cls(0, 1)
         elif ppn_name == "PROT":
-            return cls(1, 1)
+            iso = cls(1, 1)
         elif ppn_name[2] == "*":
             charge_number = Isotope.charge_numbers[
                 ppn_name[0:2].strip().lower().capitalize()
             ]
-            return cls(charge_number, int("1" + ppn_name[3:5].strip()), True)
+            iso = cls(charge_number, int("1" + ppn_name[3:5].strip()), True)
         elif ppn_name[2] == "g":
             charge_number = Isotope.charge_numbers[
                 ppn_name[0:2].strip().lower().capitalize()
             ]
-            return cls(charge_number, int("1" + ppn_name[3:5].strip()), True)
+            iso = cls(charge_number, int("1" + ppn_name[3:5].strip()), True)
+        else:
+            charge_number = Isotope.charge_numbers[
+                ppn_name[0:2].strip().lower().capitalize()
+            ]
+            iso = cls(charge_number, int(ppn_name[2:5].strip()))
 
-        charge_number = Isotope.charge_numbers[
-            ppn_name[0:2].strip().lower().capitalize()
-        ]
-        return cls(charge_number, int(ppn_name[2:5].strip()))
+        return iso
 
     @staticmethod
-    def number_to_ppn_name(charge_number, mass_number, isomer=1):
-        """
+    def number_to_ppn_name(
+        charge_number: Real, mass_number: Real, isomer: bool = False
+    ) -> str:
+        """Convert charge and mass number to PPN name.
 
         Parameters
         ----------
-        charge_number
-        mass_number
-        isomer
+        charge_number : [int, float]
+        mass_number : [int, float]
+        isomer : bool
 
         Returns
         -------
+        str
 
         """
         if int(isomer) == 1:
@@ -775,21 +820,28 @@ class Isotope:
         return Isotope(charge_number, mass_number, iso).ppn_name
 
     @staticmethod
-    def ppn_name_to_numbers(ppn_name):
+    def ppn_name_to_numbers(
+        ppn_name: str
+    ) -> Union[Tuple[int, int], Tuple[int, int, bool]]:
         """
 
         Parameters
         ----------
-        ppn_name
+        ppn_name : str
+            Name of isotope in PPN format
 
         Returns
         -------
+        [Tuple[int, int], Tuple[int, int, bool]]
+            (charge number, mass number, [isomer])
 
         """
         return Isotope.ppn_name_factory(ppn_name).numbers()
 
     @staticmethod
-    def decay_isotope(charge_number, mass_number, isomer):
+    def decay_isotope(
+        charge_number: Real, mass_number: Real, isomer: bool = False
+    ) -> Tuple[int, int, bool]:
         """
 
         Parameters
@@ -800,6 +852,7 @@ class Isotope:
 
         Returns
         -------
+        Tuple[int, int, bool]
 
         """
         return (
@@ -810,4 +863,4 @@ class Isotope:
 
 
 if __name__ == "__main__":
-    pass
+    print((Isotope.decay_isotope(10, 15, isomer=True)))

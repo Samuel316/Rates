@@ -21,6 +21,10 @@ from rates.reaction import KadonisReaction
 
 
 class Kadonis:
+    """
+
+    """
+
     def __init__(self, file_path: [str, Path]):
         self.file_path = Path(file_path)
         self.df = pd.read_pickle(file_path)
@@ -37,6 +41,16 @@ class Kadonis:
 
     @classmethod
     def read_file(cls, file_path: str):
+        """
+
+        Parameters
+        ----------
+        file_path :
+
+        Returns
+        -------
+
+        """
         file_path = Path(file_path)
 
         df = pd.read_csv(

@@ -41,7 +41,7 @@ class TestIsotope:
             isotope = Isotope.name(n)
             assert str(isotope) == n_out
 
-    def test_class_reinput_to_name(self):
+    def test_class_re_input_to_name(self):
         assert str(Isotope.name(Isotope(7, 14))) == "N14"
 
     def test_str(self):

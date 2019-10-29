@@ -19,6 +19,10 @@ from rates.reaction import ReaclibReaction
 
 
 class Reaclib:
+    """
+
+    """
+
     def __init__(self, file_path: [str, Path]):
         self.file_path = Path(file_path)
         self.df = pd.read_pickle(file_path)
@@ -27,6 +31,16 @@ class Reaclib:
         return self.df
 
     def get_n_gamma(self, target) -> ReaclibReaction:
+        """
+
+        Parameters
+        ----------
+        target :
+
+        Returns
+        -------
+
+        """
         target = Isotope.name(target)
         try:
             return self.df[
@@ -39,6 +53,16 @@ class Reaclib:
 
     @classmethod
     def read_file(cls, file_path: str):
+        """
+
+        Parameters
+        ----------
+        file_path :
+
+        Returns
+        -------
+
+        """
         file_path = Path(file_path)
 
         reaclib = {}
