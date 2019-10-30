@@ -21,8 +21,13 @@ class TestIsotope:
     isotopes = [(1, 1), (0, 1), (12, 28), (8, 16), (73, 180), (72, 180)]
     isomers = [False, False, False, False, True, True]
 
-    names = ["c12", "C12", "p", "P", "n", "N"]
-    names_out = ["C12", "C12", "p", "p", "n", "n"]
+    names = ["c12", "C12", "p", "P", "n", "N", "t"]
+    names_out = ["C12", "C12", "p", "p", "n", "n", "t"]
+
+    def test_init(self):
+        with pytest.raises(ValueError):
+            assert Isotope(119, 350)
+            assert Isotope(118, 351)
 
     def test_init_to_ppn(self):
         for iso, isomer, out in zip(self.isotopes, self.isomers, self.ppn_outputs):
@@ -46,8 +51,14 @@ class TestIsotope:
 
     def test_str(self):
         assert str(Isotope(7, 14)) == "N14"
-
         assert str(Isotope(4, 9)) == "Be9"
+
+        assert str(Isotope(1, 0)) == "weak"
+
+    def test_eq(self):
+        assert Isotope.name("Ne20") == "Ne20" and "ne20" and "20Ne"
+
+        assert Isotope.name("O12") != "NE20"
 
     def test_numbers(self):
 
@@ -63,6 +74,8 @@ class TestIsotope:
         assert Isotope(4, 8).decay().numbers() == (2, 4)
 
         assert Isotope(14, 26).decay().numbers() == (12, 26)
+
+        assert Isotope(2, 4).decay().numbers() == (2, 4)
 
         # This asserts the code is not working physically but as intended
         assert Isotope(20, 36).decay().numbers() == (16, 36)

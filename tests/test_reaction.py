@@ -41,7 +41,16 @@ class TestReaction:
         for r, s in zip(reactions, strings):
             reaction = Reaction(r[0], r[1])
 
+            assert reaction.targets == r[0]
+            assert reaction.products == r[1]
+
             assert str(reaction) == s
+
+    def test_mpl_plot(self):
+        assert (
+            str(Reaction(["n"], ["p"]).mpl_plt())
+            == "AxesSubplot(0.125,0.11;0.775x0.77)"
+        )
 
 
 class TestReaclibReaction:

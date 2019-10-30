@@ -600,7 +600,7 @@ class Isotope:
         str
         """
         if self.mass_number == 0:
-            name = None
+            name = "weak"
         elif self.charge_number == 0 and self.mass_number == 1:
             name = "n"
         elif self.charge_number == 1 and self.mass_number == 1:
@@ -613,6 +613,14 @@ class Isotope:
             name = self.symbol[self.charge_number] + str(self.mass_number)
 
         return name
+
+    def __eq__(self, other):
+        other = Isotope.name(other)
+        return (
+            other.mass_number == self.mass_number
+            and other.charge_number == self.charge_number
+            and other.isomer == self.isomer
+        )
 
     @property
     def ppn_name(self) -> str:
@@ -860,7 +868,3 @@ class Isotope:
             .decay()
             .numbers(force_isomer=True)
         )
-
-
-if __name__ == "__main__":
-    print((Isotope.decay_isotope(10, 15, isomer=True)))

@@ -63,7 +63,7 @@ class Reaction:
         if temp_units is "Gk":
             ax.set_xlabel("Temperature ($GK$)")
 
-        ax.legend()
+        return ax
 
 
 class ReaclibReaction(Reaction):
@@ -125,7 +125,7 @@ class ReaclibReaction(Reaction):
                 **kwargs
             )
 
-        super().mpl_plt(ax=ax, temp_unit=temp_unit)
+        ax = super().mpl_plt(ax=ax, temp_unit=temp_unit)
 
         return ax
 
@@ -226,6 +226,6 @@ class KadonisReaction(Reaction):
 
         ax.set_yscale("log")
 
-        super().mpl_plt(ax, temp_units=temp_unit)
+        ax = super().mpl_plt(ax, temp_units=temp_unit)
 
         return ax
