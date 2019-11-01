@@ -18,7 +18,7 @@ unit_test:
   stage: Test
   script:
   - pip install pytest
-  - cd rates
+  - cd tests
   - pwd
   - python -m pytest
     
