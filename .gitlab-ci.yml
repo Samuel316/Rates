@@ -1,2 +1,15 @@
+stages:
+  - test
+
 test:
+    stage: test
+    script:
+    
+    - apt-get update -qy
+    - apt-get install -y python-dev python-pip
+    - pip install pytest
+    - pip install .
+    - cd tests
+    - python -m pytest
+    
     
