@@ -2,14 +2,22 @@ image: "python:3.7"
 
 before_script:
   - python --version
+  - pip install pytest, flake8
   - pip install .
 
 stages:
   - Static Analysis
+  - Test
 
 flake8:
   stage: Static Analysis
   script:
   - flake8 --max-line-length=120 bild/*.py
+  
+unit_test:
+  stage: Test
+  script:
+  - cd rates
+  - python -m pytest
     
     
