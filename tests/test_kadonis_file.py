@@ -19,6 +19,10 @@ from rates.kadonis_file import Kadonis
 kadonis_file = Path("kadonis_mock")
 
 
+def test_test_file_exists():
+    assert kadonis_file.is_file()
+
+
 class TestKadonis:
     def test_read_file(self):
         k = Kadonis.read_file(kadonis_file)
