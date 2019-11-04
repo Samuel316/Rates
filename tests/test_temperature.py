@@ -34,7 +34,7 @@ class TestTemperature:
     def test_false_unit(self):
         with pytest.raises(Exception):
             Temperature(10, "k")
-
+        with pytest.raises(Exception):
             Temperature(10, "z")
 
     def test_array_input(self):
