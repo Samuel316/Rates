@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding=utf-8
 """
 Copyright Samuel Lloyd
 s1887484, 21/10/2019
@@ -13,7 +14,7 @@ Return
 
 from setuptools import setup, find_packages
 
-with open("README.md", "r") as readme_file:
+with open("README.md") as readme_file:
     readme = readme_file.read()
 
 requirements = ["pandas", "matplotlib", "numpy"]
@@ -28,5 +29,5 @@ setup(
     long_description_content_type="text/markdown",
     url="",
     packages=find_packages(),
-    install_requires=requirements
+    install_requires=requirements,
 )

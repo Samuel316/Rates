@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding=utf-8
 """
 Copyright Samuel Lloyd
 s1887484, 22/10/2019
@@ -51,6 +52,11 @@ class TestReaction:
             str(Reaction(["n"], ["p"]).mpl_plt())
             == "AxesSubplot(0.125,0.11;0.775x0.77)"
         )
+
+    def test_eq(self):
+        assert Reaction(["n", "p"], ["d"]) == Reaction(["n", "p"], ["d"])
+
+        assert Reaction(["n", "p"], ["d"]) != Reaction(["p", "p"], ["d"])
 
 
 class TestReaclibReaction:

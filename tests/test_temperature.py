@@ -51,7 +51,3 @@ class TestTemperature:
             516.5959185859126,
             861.7339293085188,
         ]
-
-
-if __name__ == "__main__":
-    print(Temperature(0.3).kev)

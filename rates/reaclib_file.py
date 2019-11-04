@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding=utf-8
 """
 Copyright Samuel Lloyd
 s1887484, 21/10/2019
@@ -10,16 +11,17 @@ Parameters
 Return
 ------
 """
-import pandas as pd
-
+from typing import Union
 from pathlib import Path
 
+import pandas as pd
+
 from rates.isotope import Isotope
-from rates.reaction import ReaclibReaction
+from rates.reaction import ReaclibReaction, Reaction
 
 
 class Reaclib:
-    """
+    """Holds all the information from  the provided reaclib file.
 
     """
 
@@ -27,18 +29,19 @@ class Reaclib:
         self.file_path = Path(file_path)
         self.df = pd.read_pickle(file_path)
 
-    def __getitem__(self, reaction):
-        return self.df
+    def __getitem__(self, reaction: Reaction):
+        pass  # make this return reactions
 
-    def get_n_gamma(self, target) -> ReaclibReaction:
-        """
+    def get_n_gamma(self, target: Union[Isotope, str]) -> ReaclibReaction:
+        """Gets reaction from target Isotope, matches __getitem__ method in the Kadonis class
 
         Parameters
         ----------
-        target :
+        target : [Isotope, str]
 
         Returns
         -------
+        ReaclibReaction
 
         """
         target = Isotope.name(target)
@@ -67,7 +70,7 @@ class Reaclib:
 
         reaclib = {}
 
-        with open(file_path, "r") as reaclib_file:
+        with open(file_path) as reaclib_file:
             reaclib_file = reaclib_file.readlines()
 
         reaclib["Chapter"] = [int(i.strip()) for i in reaclib_file[0::4]]
@@ -127,7 +130,3 @@ class Reaclib:
         pickle_path = "{0}.temp".format(str(file_path.parent / file_path.stem))
         df.to_pickle(pickle_path)
         return cls(file_path=pickle_path)
-
-
-if __name__ == "__main__":
-    pass

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding=utf-8
 """
 Copyright Samuel Lloyd
 s1887484, 21/10/2019
@@ -27,6 +28,7 @@ class TestIsotope:
     def test_init(self):
         with pytest.raises(ValueError):
             assert Isotope(119, 350)
+        with pytest.raises(ValueError):
             assert Isotope(118, 351)
 
     def test_init_to_ppn(self):

@@ -12,6 +12,8 @@ Return
 ------
 """
 import copy
+from collections import Counter
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -45,6 +47,13 @@ class Reaction:
         return "{0} -> {1}".format(
             "+".join([str(i) for i in self.targets]),
             "+".join([str(i) for i in self.products]),
+        )
+
+    def __eq__(self, other):
+        return Counter([str(i) for i in self.targets]) == Counter(
+            [str(i) for i in other.targets]
+        ) and Counter([str(i) for i in self.products]) == Counter(
+            [str(i) for i in other.products]
         )
 
     def mpl_plt(self, ax=None, temp_units="Gk", **kwargs):

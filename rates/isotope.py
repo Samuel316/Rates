@@ -817,15 +817,15 @@ class Isotope:
 
         """
         if int(isomer) == 1:
-            iso = False
+            isomer = False
         elif int(isomer) == 2:
-            iso = True
+            isomer = True
         else:
             raise ValueError(
                 "No valid input for isomer, should be 1 for False or 2 for True", isomer
             )
 
-        return Isotope(charge_number, mass_number, iso).ppn_name
+        return Isotope(charge_number, mass_number, isomer).ppn_name
 
     @staticmethod
     def ppn_name_to_numbers(
