@@ -31,7 +31,7 @@ class Reaction:
 
     Attributes
     ----------
-    mpl_plt : matplotlib axis
+    mpl_plt : matplotlib.pyplot.axis axis
 
 
     

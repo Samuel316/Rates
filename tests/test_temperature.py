@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding=utf-8
 """
 Copyright Samuel Lloyd
 s1887484, 21/10/2019
