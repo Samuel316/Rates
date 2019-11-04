@@ -7,8 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c9bbf21-c831-43ec-89fa-42e32a2829e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_temperature.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_temperature.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,13 +50,14 @@
   </component>
   <component name="CoverageViewManager">
     <option name="myAutoScrollToSource" value="true" />
-    <option name="myElementSize" value="202" />
+    <option name="myElementSize" value="15" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1638683442">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Kadonis" value="1" />
+          <entry key="Pipfile" value="1" />
           <entry key="ReaclibReaction" value="1" />
           <entry key="Reaction" value="1" />
           <entry key="cfg" value="2" />
@@ -81,23 +81,26 @@
           <entry key="Profiler Session" value="1" />
           <entry key="Python" value="15" />
           <entry key="PythonStub" value="1" />
+          <entry key="TOML" value="1" />
           <entry key="UML" value="3" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="Pipfile" value="2" />
           <entry key="dummy" value="5" />
           <entry key="kadonis_mock" value="1" />
           <entry key="py" value="7302" />
           <entry key="reaclib_mock" value="2" />
-          <entry key="txt" value="363" />
+          <entry key="txt" value="390" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="371" />
+          <entry key="PLAIN_TEXT" value="398" />
           <entry key="Python" value="7302" />
+          <entry key="TOML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -171,14 +174,23 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tests/test_temperature.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="304">
+                <state relative-caret-position="610">
                   <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
                   <folding>
                     <element signature="e#141#154#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Pipfile">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="289">
+                  <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
@@ -285,6 +297,7 @@
         <option value="$PROJECT_DIR$/rates/temperature.py" />
         <option value="$PROJECT_DIR$/rates/__init__.py" />
         <option value="$PROJECT_DIR$/tests/test_temperature.py" />
+        <option value="$PROJECT_DIR$/Pipfile" />
       </list>
     </option>
   </component>
@@ -789,19 +802,17 @@
       <option name="project" value="LOCAL" />
       <updated>1572870879839</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Fixed test">
+      <created>1572882415440</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1572882415440</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="pytest_in_tests - 2019.10.29 at 21h 59m 48s.xml">
-      <configuration name="pytest in tests" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_for_test_isotope_TestIsotope_test_str - 2019.10.29 at 22h 04m 56s.xml">
-      <configuration name="pytest for test_isotope.TestIsotope.test_str" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_for_test_isotope_TestIsotope_test_str - 2019.10.29 at 22h 06m 07s.xml">
-      <configuration name="pytest for test_isotope.TestIsotope.test_str" configurationId="tests" />
-    </history-entry>
     <history-entry file="pytest_in_tests - 2019.10.29 at 22h 06m 18s.xml">
       <configuration name="pytest in tests" configurationId="tests" />
     </history-entry>
@@ -823,11 +834,21 @@
     <history-entry file="pytest_for_test_kadonis_file_test_test_file_exists - 2019.11.01 at 22h 38m 18s.xml">
       <configuration name="pytest for test_kadonis_file.test_test_file_exists" configurationId="tests" />
     </history-entry>
+    <history-entry file="pytest_in_tests - 2019.11.04 at 15h 45m 39s.xml">
+      <configuration name="pytest in tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_tests - 2019.11.04 at 15h 46m 04s.xml">
+      <configuration name="pytest in tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_tests - 2019.11.04 at 15h 46m 27s.xml">
+      <configuration name="pytest in tests" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48188975" visible="true" weight="0.1663113" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48188975" visible="true" weight="0.1663113" />
       <window_info id="Structure" order="1" sideWeight="0.5181102" side_tool="true" weight="0.1376702" />
       <window_info id="Favorites" order="2" sideWeight="0.5064516" side_tool="true" weight="0.18763326" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -852,7 +873,7 @@
       <window_info anchor="right" id="SciView" order="3" sideWeight="0.4908759" weight="0.24886535" />
       <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="4" sideWeight="0.513302" side_tool="true" weight="0.26332623" />
       <window_info anchor="right" id="Database" order="5" weight="0.32995737" />
-      <window_info active="true" anchor="right" id="Coverage" order="6" sideWeight="0.5091241" side_tool="true" visible="true" weight="0.02771855" />
+      <window_info anchor="right" id="Coverage" order="6" sideWeight="0.5091241" side_tool="true" visible="true" weight="0.02771855" />
     </layout>
   </component>
   <component name="ToolsProjectConfig">
@@ -903,7 +924,8 @@
     <MESSAGE value="New Test" />
     <MESSAGE value="Deleted files" />
     <MESSAGE value="Minor format changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor format changes" />
+    <MESSAGE value="Fixed test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed test" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/rates$pytest_for_test_temperature_TestTemperature.coverage" NAME="pytest for test_temperature.TestTemperature Coverage Results" MODIFIED="1571823599231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
@@ -1144,11 +1166,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_temperature.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
+        <state relative-caret-position="610">
           <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
           <folding>
             <element signature="e#141#154#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pipfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
         </state>
       </provider>
     </entry>
