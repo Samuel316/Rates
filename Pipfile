@@ -4,14 +4,15 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pytest = "*"
+coverage = "*"
 
 [packages]
 numpy = "*"
 pandas = "*"
 matplotlib = "*"
 holoviews = "*"
-pytest = "*"
-coverage = "*"
+
 
 [requires]
 python_version = "3.7"
