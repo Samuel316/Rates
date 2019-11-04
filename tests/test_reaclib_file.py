@@ -86,18 +86,20 @@ reaclib_mock_file = {
     ],
 }
 
+reaclib_path = Path(__file__).parent
+
 
 class TestReaclib:
-    reaclib = Reaclib("reaclib_mock.temp")
-
     def test_read_file(self):
-        reaclib = Reaclib.read_file("reaclib_mock")
+        reaclib = Reaclib.read_file((Path(__file__).parent / "reaclib_mock"))
 
         assert isinstance(reaclib, Reaclib)
 
         for column, data in reaclib_mock_file.items():
             for i, d in enumerate(data):
                 assert reaclib.df[column].iloc[i] == d
+
+    reaclib = Reaclib((reaclib_path / "reaclib_mock.temp"))
 
     def test_getitem(self):
         # TODO: write test for __getitem__

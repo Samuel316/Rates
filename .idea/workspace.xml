@@ -6,19 +6,10 @@
     </enabled-run-configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c9bbf21-c831-43ec-89fa-42e32a2829e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="0c9bbf21-c831-43ec-89fa-42e32a2829e7" name="Default Changelist" comment="Added dunder eq method to Reaction so all reactions with the same targets and products are equal.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rates/isotope.py" beforeDir="false" afterPath="$PROJECT_DIR$/rates/isotope.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rates/kadonis_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/rates/kadonis_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rates/reaclib_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/rates/reaclib_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rates/reaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/rates/reaction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_isotope.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_isotope.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_kadonis_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_kadonis_file.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_reaclib_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_reaclib_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_reaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_reaction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_temperature.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_temperature.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,25 +25,26 @@
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaction_TestReaction_test_eq.coverage" NAME="pytest for test_reaction.TestReaction.test_eq Coverage Results" MODIFIED="1572890421521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_isotope_TestIsotope_test_is_stable.coverage" NAME="pytest for test_isotope.TestIsotope.test_is_stable Coverage Results" MODIFIED="1572006825630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$Rates.coverage" NAME="Rates Coverage Results" MODIFIED="1571831215562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Rates$pytest_in_test_kadonis_file_py.coverage" NAME="pytest in test_kadonis_file.py Coverage Results" MODIFIED="1571847152855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/Rates$pytest_for_test_kadonis_file_test_test_file_exists.coverage" NAME="pytest for test_kadonis_file.test_test_file_exists Coverage Results" MODIFIED="1572647896174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/Rates$pytest_in_test_kadonis_file_py.coverage" NAME="pytest in test_kadonis_file.py Coverage Results" MODIFIED="1572893252906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/Rates$pytest_for_test_kadonis_file_test_test_file_exists.coverage" NAME="pytest for test_kadonis_file.test_test_file_exists Coverage Results" MODIFIED="1572893229884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaction_TestKadonisReaction.coverage" NAME="pytest for test_reaction.TestKadonisReaction Coverage Results" MODIFIED="1571846046975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_isotope_TestIsotope.coverage" NAME="pytest for test_isotope.TestIsotope Coverage Results" MODIFIED="1571846227496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_isotope_TestIsotope_test_str.coverage" NAME="pytest for test_isotope.TestIsotope.test_str Coverage Results" MODIFIED="1572386764284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_kadonis_file_TestKadonis.coverage" NAME="pytest for test_kadonis_file.TestKadonis Coverage Results" MODIFIED="1572647767139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/Rates$pytest_in_test_reaclib_file_py.coverage" NAME="pytest in test_reaclib_file.py Coverage Results" MODIFIED="1572886236273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/Rates$pytest_in_test_reaclib_file_py.coverage" NAME="pytest in test_reaclib_file.py Coverage Results" MODIFIED="1572893475705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_in_test_reaction_py.coverage" NAME="pytest in test_reaction.py Coverage Results" MODIFIED="1571847102609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaclib_file_TestReaclib_test_read_file.coverage" NAME="pytest for test_reaclib_file.TestReaclib.test_read_file Coverage Results" MODIFIED="1572890453981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaction_TestReaclibReaction.coverage" NAME="pytest for test_reaction.TestReaclibReaction Coverage Results" MODIFIED="1571852705467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_isotope_TestIsotope_test_numbers.coverage" NAME="pytest for test_isotope.TestIsotope.test_numbers Coverage Results" MODIFIED="1572006281054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/Rates$reaction.coverage" NAME="reaction Coverage Results" MODIFIED="1572387421817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rates" />
+    <SUITE FILE_PATH="coverage/Rates$reaction.coverage" NAME="reaction Coverage Results" MODIFIED="1572893358399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rates" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_isotope_TestClass.coverage" NAME="pytest for test_isotope.TestClass Coverage Results" MODIFIED="1571746831990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_temperature_TestTemperature_test_array_input.coverage" NAME="pytest for test_temperature.TestTemperature.test_array_input Coverage Results" MODIFIED="1571854615880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_isotope_TestIsotope_test_decay.coverage" NAME="pytest for test_isotope.TestIsotope.test_decay Coverage Results" MODIFIED="1572006674311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/Rates$pytest_for_test_kadonis_file_TestKadonis_test_read_file.coverage" NAME="pytest for test_kadonis_file.TestKadonis.test_read_file Coverage Results" MODIFIED="1572892999482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaction_TestReaction.coverage" NAME="pytest for test_reaction.TestReaction Coverage Results" MODIFIED="1572385157197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaction_TestKadonisReaction_test_init.coverage" NAME="pytest for test_reaction.TestKadonisReaction.test_init Coverage Results" MODIFIED="1571845936609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_isotope_TestIsotope_test_init.coverage" NAME="pytest for test_isotope.TestIsotope.test_init Coverage Results" MODIFIED="1572883502333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaclib_file_TestReaclib.coverage" NAME="pytest for test_reaclib_file.TestReaclib Coverage Results" MODIFIED="1572889218409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaclib_file_TestReaclib.coverage" NAME="pytest for test_reaclib_file.TestReaclib Coverage Results" MODIFIED="1572893531248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_in_tests.coverage" NAME="pytest in tests Coverage Results" MODIFIED="1572890711198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaclib_file_TestReaclib_test_get_n_gamma.coverage" NAME="pytest for test_reaclib_file.TestReaclib.test_get_n_gamma Coverage Results" MODIFIED="1572890695411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_in_test_isotope_py.coverage" NAME="pytest in test_isotope.py Coverage Results" MODIFIED="1572385139618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
@@ -67,7 +59,7 @@
   </component>
   <component name="CoverageViewManager">
     <option name="myAutoScrollToSource" value="true" />
-    <option name="myElementSize" value="317" />
+    <option name="myElementSize" value="338" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1638683442">
@@ -78,6 +70,7 @@
           <entry key="ReaclibReaction" value="1" />
           <entry key="Reaction" value="1" />
           <entry key="cfg" value="2" />
+          <entry key="coverage" value="2" />
           <entry key="fwf" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="ipynb" value="4" />
@@ -97,7 +90,7 @@
           <entry key="Git file" value="1" />
           <entry key="IPNB" value="4" />
           <entry key="Ini" value="2" />
-          <entry key="PLAIN_TEXT" value="9" />
+          <entry key="PLAIN_TEXT" value="11" />
           <entry key="Profiler Session" value="1" />
           <entry key="Python" value="18" />
           <entry key="PythonStub" value="1" />
@@ -112,15 +105,15 @@
           <entry key="Python Console" value="182" />
           <entry key="dummy" value="5" />
           <entry key="kadonis_mock" value="1" />
-          <entry key="py" value="8703" />
+          <entry key="py" value="8874" />
           <entry key="reaclib_mock" value="2" />
-          <entry key="txt" value="428" />
+          <entry key="txt" value="560" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="436" />
-          <entry key="Python" value="8885" />
+          <entry key="PLAIN_TEXT" value="568" />
+          <entry key="Python" value="9056" />
           <entry key="TOML" value="4" />
         </counts>
       </usages-collector>
@@ -138,13 +131,13 @@
     <favorites_list name="Rates" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4258312">
+    <splitter split-orientation="horizontal" split-proportion="0.41530055">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/rates/isotope.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1416">
+                <state relative-caret-position="-1593">
                   <caret line="688" column="10" selection-start-line="688" selection-start-column="10" selection-end-line="688" selection-end-column="10" />
                 </state>
               </provider>
@@ -153,10 +146,11 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tests/test_kadonis_file.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+                <state relative-caret-position="476">
+                  <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
                   <folding>
-                    <marker date="1572870775991" expanded="true" signature="303:340" ph="..." />
+                    <element signature="e#141#154#0" expanded="true" />
+                    <marker date="1572893358374" expanded="true" signature="321:358" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -165,12 +159,12 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/rates/reaction.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+                <state relative-caret-position="3720">
+                  <caret line="240" selection-start-line="240" selection-end-line="240" />
                   <folding>
                     <element signature="e#156#167#0" expanded="true" />
-                    <marker date="1572890361339" expanded="true" signature="1077:1316" ph="..." />
-                    <marker date="1572890361339" expanded="true" signature="1370:1379" ph="..." />
+                    <marker date="1572893420012" expanded="true" signature="1077:1316" ph="..." />
+                    <marker date="1572893420012" expanded="true" signature="1370:1379" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -179,7 +173,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/rates/reaclib_file.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1768">
+                <state relative-caret-position="2023">
                   <caret line="131" column="41" lean-forward="true" selection-start-line="131" selection-start-column="41" selection-end-line="131" selection-end-column="41" />
                   <folding>
                     <element signature="e#156#186#0" expanded="true" />
@@ -217,12 +211,12 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/test_reaclib_file.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="470">
-                  <caret line="110" column="48" lean-forward="true" selection-start-line="110" selection-start-column="48" selection-end-line="110" selection-end-column="48" />
+                <state relative-caret-position="358">
+                  <caret line="105" column="12" lean-forward="true" selection-start-line="105" selection-start-column="12" selection-end-line="105" selection-end-column="12" />
                   <folding>
                     <element signature="e#142#155#0" expanded="true" />
-                    <marker date="1572890649024" expanded="true" signature="2647:2932" ph="..." />
-                    <marker date="1572890649024" expanded="true" signature="2676:2685" ph="..." />
+                    <marker date="1572893532067" expanded="true" signature="2728:3015" ph="..." />
+                    <marker date="1572893532067" expanded="true" signature="2757:2766" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -288,7 +282,6 @@
         <option value="$PROJECT_DIR$/tests/kadonis_mock" />
         <option value="$PROJECT_DIR$/tests/reaclib_mock" />
         <option value="$PROJECT_DIR$/rates/kadonis_file.py" />
-        <option value="$PROJECT_DIR$/tests/test_kadonis_file.py" />
         <option value="$PROJECT_DIR$/rates/temperature.py" />
         <option value="$PROJECT_DIR$/rates/__init__.py" />
         <option value="$PROJECT_DIR$/Pipfile" />
@@ -298,8 +291,9 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/rates/reaclib_file.py" />
         <option value="$PROJECT_DIR$/tests/test_isotope.py" />
-        <option value="$PROJECT_DIR$/rates/reaction.py" />
         <option value="$PROJECT_DIR$/tests/test_reaction.py" />
+        <option value="$PROJECT_DIR$/tests/test_kadonis_file.py" />
+        <option value="$PROJECT_DIR$/rates/reaction.py" />
         <option value="$PROJECT_DIR$/tests/test_reaclib_file.py" />
       </list>
     </option>
@@ -514,7 +508,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.pytest in tests">
+  <component name="RunManager" selected="Python tests.pytest for test_reaclib_file.TestReaclib">
     <configuration name="Rates" type="JupiterNotebook" factoryName="Jupyter Notebook">
       <module name="Rates" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -533,6 +527,44 @@
       <option name="ipnbPort" value="8888" />
       <method v="2" />
     </configuration>
+    <configuration name="reaction" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Rates" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/rates" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rates/reaction.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_kadonis_file.test_test_file_exists" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Rates" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_kadonis_file.test_test_file_exists&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="pytest for test_reaclib_file.TestReaclib" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Rates" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -549,7 +581,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_reaclib_file.TestReaclib.test_get_n_gamma" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest in test_kadonis_file.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Rates" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -561,40 +593,8 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_reaclib_file.TestReaclib.test_get_n_gamma&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_reaclib_file.TestReaclib.test_read_file" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="Rates" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_reaclib_file.TestReaclib.test_read_file&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_reaction.TestReaction.test_eq" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="Rates" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_reaction.TestReaction.test_eq&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_kadonis_file.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="pytest in test_reaclib_file.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
@@ -632,19 +632,19 @@
     <list>
       <item itemvalue="Jupyter Notebook.Rates" />
       <item itemvalue="Python tests.pytest in tests" />
-      <item itemvalue="Python tests.pytest for test_reaclib_file.TestReaclib.test_read_file" />
+      <item itemvalue="Python tests.pytest for test_kadonis_file.test_test_file_exists" />
       <item itemvalue="Python tests.pytest for test_reaclib_file.TestReaclib" />
+      <item itemvalue="Python tests.pytest in test_kadonis_file.py" />
+      <item itemvalue="Python.reaction" />
       <item itemvalue="Python tests.pytest in test_reaclib_file.py" />
-      <item itemvalue="Python tests.pytest for test_reaclib_file.TestReaclib.test_get_n_gamma" />
-      <item itemvalue="Python tests.pytest for test_reaction.TestReaction.test_eq" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_reaclib_file.TestReaclib.test_get_n_gamma" />
-        <item itemvalue="Python tests.pytest for test_reaclib_file.TestReaclib.test_read_file" />
-        <item itemvalue="Python tests.pytest for test_reaction.TestReaction.test_eq" />
         <item itemvalue="Python tests.pytest for test_reaclib_file.TestReaclib" />
         <item itemvalue="Python tests.pytest in test_reaclib_file.py" />
+        <item itemvalue="Python.reaction" />
+        <item itemvalue="Python tests.pytest in test_kadonis_file.py" />
+        <item itemvalue="Python tests.pytest for test_kadonis_file.test_test_file_exists" />
       </list>
     </recent_temporary>
   </component>
@@ -828,39 +828,46 @@
       <option name="project" value="LOCAL" />
       <updated>1572883406777</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added dunder eq method to Reaction so all reactions with the same targets and products are equal.">
+      <created>1572890829460</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1572890829460</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="pytest_for_test_reaclib_file_TestReaclib_test_get_n_gamma - 2019.11.04 at 17h 38m 11s.xml">
-      <configuration name="pytest for test_reaclib_file.TestReaclib.test_get_n_gamma" configurationId="tests" />
+    <history-entry file="pytest_for_test_kadonis_file_TestKadonis_test_read_file - 2019.11.04 at 18h 43m 21s.xml">
+      <configuration name="pytest for test_kadonis_file.TestKadonis.test_read_file" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_test_reaclib_file_TestReaclib_test_get_n_gamma - 2019.11.04 at 17h 38m 51s.xml">
-      <configuration name="pytest for test_reaclib_file.TestReaclib.test_get_n_gamma" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_for_test_reaclib_file_TestReaclib - 2019.11.04 at 17h 39m 02s.xml">
+    <history-entry file="pytest_for_test_reaclib_file_TestReaclib - 2019.11.04 at 18h 45m 19s.xml">
       <configuration name="pytest for test_reaclib_file.TestReaclib" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_test_reaclib_file_TestReaclib - 2019.11.04 at 17h 40m 20s.xml">
+    <history-entry file="pytest_for_test_reaclib_file_TestReaclib - 2019.11.04 at 18h 45m 53s.xml">
       <configuration name="pytest for test_reaclib_file.TestReaclib" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_test_reaction_TestReaction_test_eq - 2019.11.04 at 17h 59m 23s.xml">
-      <configuration name="pytest for test_reaction.TestReaction.test_eq" configurationId="tests" />
+    <history-entry file="pytest_for_test_reaclib_file_TestReaclib - 2019.11.04 at 18h 46m 39s.xml">
+      <configuration name="pytest for test_reaclib_file.TestReaclib" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_test_reaction_TestReaction_test_eq - 2019.11.04 at 17h 59m 58s.xml">
-      <configuration name="pytest for test_reaction.TestReaction.test_eq" configurationId="tests" />
+    <history-entry file="pytest_for_test_kadonis_file_test_test_file_exists - 2019.11.04 at 18h 47m 11s.xml">
+      <configuration name="pytest for test_kadonis_file.test_test_file_exists" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_test_reaction_TestReaction_test_eq - 2019.11.04 at 18h 00m 23s.xml">
-      <configuration name="pytest for test_reaction.TestReaction.test_eq" configurationId="tests" />
+    <history-entry file="pytest_in_test_kadonis_file_py - 2019.11.04 at 18h 47m 16s.xml">
+      <configuration name="pytest in test_kadonis_file.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_test_reaclib_file_TestReaclib_test_read_file - 2019.11.04 at 18h 00m 55s.xml">
-      <configuration name="pytest for test_reaclib_file.TestReaclib.test_read_file" configurationId="tests" />
+    <history-entry file="pytest_in_test_kadonis_file_py - 2019.11.04 at 18h 47m 35s.xml">
+      <configuration name="pytest in test_kadonis_file.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_in_tests - 2019.11.04 at 18h 01m 41s.xml">
-      <configuration name="pytest in tests" configurationId="tests" />
+    <history-entry file="pytest_for_test_reaclib_file_TestReaclib - 2019.11.04 at 18h 50m 25s.xml">
+      <configuration name="pytest for test_reaclib_file.TestReaclib" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_test_reaclib_file_TestReaclib_test_get_n_gamma - 2019.11.04 at 18h 03m 00s.xml">
-      <configuration name="pytest for test_reaclib_file.TestReaclib.test_get_n_gamma" configurationId="tests" />
+    <history-entry file="pytest_in_test_reaclib_file_py - 2019.11.04 at 18h 51m 18s.xml">
+      <configuration name="pytest in test_reaclib_file.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_test_reaclib_file_TestReaclib - 2019.11.04 at 18h 52m 13s.xml">
+      <configuration name="pytest for test_reaclib_file.TestReaclib" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -874,14 +881,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48083067" visible="true" weight="0.1663113" />
       <window_info id="Structure" order="1" sideWeight="0.51916933" side_tool="true" weight="0.1663113" />
       <window_info id="Favorites" order="2" sideWeight="0.51916933" side_tool="true" weight="0.1663113" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5053305" visible="true" weight="0.31404072" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5053305" weight="0.31404072" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39875388" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -890,7 +896,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" sideWeight="0.510661" weight="0.32827735" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4946695" side_tool="true" weight="0.21436228" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3290461" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3290461" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.5154584" weight="0.2926045" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32936078" />
       <window_info anchor="bottom" id="Mypy" order="14" />
@@ -954,7 +960,8 @@
     <MESSAGE value="Minor format changes" />
     <MESSAGE value="Fixed test" />
     <MESSAGE value="Added dev only installs to pipfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added dev only installs to pipfile" />
+    <MESSAGE value="Added dunder eq method to Reaction so all reactions with the same targets and products are equal." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added dunder eq method to Reaction so all reactions with the same targets and products are equal." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/rates$pytest_for_test_temperature_TestTemperature.coverage" NAME="pytest for test_temperature.TestTemperature Coverage Results" MODIFIED="1571823599231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
@@ -1092,16 +1099,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_kadonis_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <marker date="1572870775991" expanded="true" signature="303:340" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pipfile.lock">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1170,36 +1167,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rates/isotope.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1416">
-          <caret line="688" column="10" selection-start-line="688" selection-start-column="10" selection-end-line="688" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rates/reaction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="e#156#167#0" expanded="true" />
-            <marker date="1572890361339" expanded="true" signature="1077:1316" ph="..." />
-            <marker date="1572890361339" expanded="true" signature="1370:1379" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rates/reaclib_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1768">
-          <caret line="131" column="41" lean-forward="true" selection-start-line="131" selection-start-column="41" selection-end-line="131" selection-end-column="41" />
-          <folding>
-            <element signature="e#156#186#0" expanded="true" />
-            <marker date="1572888457092" expanded="true" signature="707:1280" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_reaction.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -1217,14 +1184,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rates/isotope.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1593">
+          <caret line="688" column="10" selection-start-line="688" selection-start-column="10" selection-end-line="688" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_kadonis_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+          <folding>
+            <element signature="e#141#154#0" expanded="true" />
+            <marker date="1572893358374" expanded="true" signature="321:358" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rates/reaction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3720">
+          <caret line="240" selection-start-line="240" selection-end-line="240" />
+          <folding>
+            <element signature="e#156#167#0" expanded="true" />
+            <marker date="1572893420012" expanded="true" signature="1077:1316" ph="..." />
+            <marker date="1572893420012" expanded="true" signature="1370:1379" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rates/reaclib_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2023">
+          <caret line="131" column="41" lean-forward="true" selection-start-line="131" selection-start-column="41" selection-end-line="131" selection-end-column="41" />
+          <folding>
+            <element signature="e#156#186#0" expanded="true" />
+            <marker date="1572888457092" expanded="true" signature="707:1280" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/.coverage">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.coverage">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_reaclib_file.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="110" column="48" lean-forward="true" selection-start-line="110" selection-start-column="48" selection-end-line="110" selection-end-column="48" />
+        <state relative-caret-position="358">
+          <caret line="105" column="12" lean-forward="true" selection-start-line="105" selection-start-column="12" selection-end-line="105" selection-end-column="12" />
           <folding>
             <element signature="e#142#155#0" expanded="true" />
-            <marker date="1572890649024" expanded="true" signature="2647:2932" ph="..." />
-            <marker date="1572890649024" expanded="true" signature="2676:2685" ph="..." />
+            <marker date="1572893532067" expanded="true" signature="2728:3015" ph="..." />
+            <marker date="1572893532067" expanded="true" signature="2757:2766" ph="..." />
           </folding>
         </state>
       </provider>

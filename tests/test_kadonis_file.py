@@ -17,7 +17,7 @@ from pathlib import Path
 
 from rates.kadonis_file import Kadonis
 
-kadonis_file = Path("kadonis_mock")
+kadonis_file = Path(__file__).parent / "kadonis_mock"
 
 
 def test_test_file_exists():
