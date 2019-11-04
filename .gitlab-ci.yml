@@ -21,7 +21,7 @@ pytest:
   stage: Test
   script:
   - pip install pytest --quiet
-  - cd tests
-  - python -m pytest
+  - pip install pytest-cov
+  - pytest --cov=rates tests/
     
     
