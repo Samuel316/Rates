@@ -176,3 +176,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+data/kadonis_rrates_1.0.temp
+data/non_smoker.txt
+data/reaclib_default.temp
+notebooks/kadonis_rrates_1.0.temp
+tests/kadonis_mock.temp
+tests/reaclib_mock.temp

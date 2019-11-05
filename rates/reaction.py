@@ -34,9 +34,6 @@ class Reaction:
     Attributes
     ----------
     mpl_plt : matplotlib.pyplot.axis axis
-
-
-    
     """
 
     def __init__(self, targets: iter, products: iter):
