@@ -8,3 +8,5 @@
 | ------ | ------ |
 | Isotope | Holds a single isotope converting between different representations |
 | Reaction | Holds a reaction and its associated rate | 
+
+Also holds data from whole files
