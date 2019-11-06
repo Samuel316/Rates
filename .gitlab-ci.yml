@@ -22,10 +22,3 @@ pytest:37:
   script:
   - pip install tox --quiet
   - tox -e py37
-    
-pytest:38:
-  image: "python:3.8"
-  stage: Test
-  script:
-  - pip install tox --quiet
-  - tox -e py38

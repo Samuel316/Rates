@@ -21,7 +21,7 @@ requirements = ["pandas", "matplotlib", "numpy"]
 
 setup(
     name="rates",
-    version="0.0.1",
+    version="1.0.0",
     author="Samuel Lloyd",
     author_email="samuel.lloyd@ed.ac.uk",
     description="",
@@ -30,5 +30,5 @@ setup(
     url="",
     packages=find_packages(),
     install_requires=requirements,
-    python_requires='>3.7',
+    python_requires='3.7',
 )
