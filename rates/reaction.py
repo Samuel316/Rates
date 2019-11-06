@@ -12,6 +12,8 @@ Return
 ------
 """
 import copy
+from numbers import Real
+from typing import Union, List
 from collections import Counter
 
 import numpy as np
@@ -19,6 +21,8 @@ import matplotlib.pyplot as plt
 
 from rates.isotope import Isotope
 from rates.temperature import Temperature
+
+iso_list_type = List[Union[Isotope, str]]
 
 
 class Reaction:
@@ -33,27 +37,29 @@ class Reaction:
 
     Attributes
     ----------
-    mpl_plt : matplotlib.pyplot.axis axis
+    "mpl_plt" : plt.axis axis
     """
 
-    def __init__(self, targets: iter, products: iter):
+    def __init__(self, targets: iso_list_type, products: iso_list_type) -> None:
         self.targets = [Isotope.name(t) for t in targets]
         self.products = [Isotope.name(t) for t in products]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return "{0} -> {1}".format(
             "+".join([str(i) for i in self.targets]),
             "+".join([str(i) for i in self.products]),
         )
 
-    def __eq__(self, other):
+    def __eq__(self, other: "Reaction") -> bool:
         return Counter([str(i) for i in self.targets]) == Counter(
             [str(i) for i in other.targets]
         ) and Counter([str(i) for i in self.products]) == Counter(
             [str(i) for i in other.products]
         )
 
-    def mpl_plt(self, ax=None, temp_units="Gk", **kwargs):
+    def mpl_plt(
+        self, ax: plt.axis = None, temp_units: str = "Gk", **kwargs
+    ) -> plt.axis:
         """
 
         Parameters
@@ -75,14 +81,29 @@ class Reaction:
 class ReaclibReaction(Reaction):
     """
 
+    Parameters
+    ----------
+    targets : List of str or Isotope
+        List of all the target isotopes including n and p.
+    products : List of str or Isotope
+        List of all the product isotopes including n and p.
+
+    Attributes
+    ----------
     """
 
-    def __init__(self, targets: iter, products: iter, a_rates: iter, label: str):
+    def __init__(
+        self,
+        targets: iso_list_type,
+        products: iso_list_type,
+        a_rates: List[Real],
+        label: str,
+    ) -> None:
         super().__init__(targets, products)
         self.a = a_rates
         self.label = label
 
-    def rate(self, temp9: [float, np.asarray]):
+    def rate(self, temp9: Union[Real, np.asarray]):
         """
 
         Parameters
@@ -103,7 +124,7 @@ class ReaclibReaction(Reaction):
             + self.a[6] * np.log(temp9)
         )
 
-    def mpl_plot(self, ax=None, temp_unit="GK", **kwargs):
+    def mpl_plot(self, ax: plt.axis = None, temp_unit: str = "GK", **kwargs):
         """
 
         Parameters
@@ -136,7 +157,9 @@ class ReaclibReaction(Reaction):
         return ax
 
     @classmethod
-    def reaclib_factory(cls, chapter: int, ei: iter, a_rates: iter, label: str = None):
+    def reaclib_factory(
+        cls, chapter: int, ei: iter, a_rates: iter, label: str = None
+    ) -> "ReaclibReaction":
         """
 
         Parameters
@@ -177,14 +200,23 @@ class ReaclibReaction(Reaction):
 class KadonisReaction(Reaction):
     """
 
+    Parameters
+    ----------
+    target : Union[str, Isotope]
+        Target isotope for n gamma.
+    rr:
+
+    Attributes
+    ----------
+
     """
 
     def __init__(
         self,
-        target: [str, Isotope],
-        rr: iter,
-        err: iter,
-        temp: iter = (5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100),
+        target: Union[str, Isotope],
+        rr: List[Real],
+        err: List[Real],
+        temp: List[Real] = (5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100),
         temp_units: str = "KeV",
         label: str = "Kadonis",
     ):
@@ -198,7 +230,7 @@ class KadonisReaction(Reaction):
         self.temp_unit = temp_units
         self.label = label
 
-    def mpl_plot(self, ax=None, temp_unit="Gk", **kwargs):
+    def mpl_plot(self, ax: plt.axis = None, temp_unit: str = "Gk", **kwargs):
         """
 
         Parameters
