@@ -6,11 +6,13 @@
     </enabled-run-configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c9bbf21-c831-43ec-89fa-42e32a2829e7" name="Default Changelist" comment="Added dunder eq method to Reaction so all reactions with the same targets and products are equal.">
-      <change beforePath="$PROJECT_DIR$/.idea/Rates.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Rates.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0c9bbf21-c831-43ec-89fa-42e32a2829e7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tox.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rates/reaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/rates/reaction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +38,7 @@
     <SUITE FILE_PATH="coverage/Rates$pytest_in_test_reaction_py.coverage" NAME="pytest in test_reaction.py Coverage Results" MODIFIED="1571847102609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaclib_file_TestReaclib_test_read_file.coverage" NAME="pytest for test_reaclib_file.TestReaclib.test_read_file Coverage Results" MODIFIED="1572890453981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaction_TestReaclibReaction.coverage" NAME="pytest for test_reaction.TestReaclibReaction Coverage Results" MODIFIED="1571852705467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/Rates$Tox.coverage" NAME="Tox Coverage Results" MODIFIED="1573046474970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_isotope_TestIsotope_test_numbers.coverage" NAME="pytest for test_isotope.TestIsotope.test_numbers Coverage Results" MODIFIED="1572006281054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$reaction.coverage" NAME="reaction Coverage Results" MODIFIED="1572893358399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rates" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_isotope_TestClass.coverage" NAME="pytest for test_isotope.TestClass Coverage Results" MODIFIED="1571746831990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
@@ -46,7 +49,7 @@
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaction_TestKadonisReaction_test_init.coverage" NAME="pytest for test_reaction.TestKadonisReaction.test_init Coverage Results" MODIFIED="1571845936609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_isotope_TestIsotope_test_init.coverage" NAME="pytest for test_isotope.TestIsotope.test_init Coverage Results" MODIFIED="1572883502333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaclib_file_TestReaclib.coverage" NAME="pytest for test_reaclib_file.TestReaclib Coverage Results" MODIFIED="1572893531248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/Rates$pytest_in_tests.coverage" NAME="pytest in tests Coverage Results" MODIFIED="1572952779226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/Rates$pytest_in_tests.coverage" NAME="pytest in tests Coverage Results" MODIFIED="1573045371549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaclib_file_TestReaclib_test_get_n_gamma.coverage" NAME="pytest for test_reaclib_file.TestReaclib.test_get_n_gamma Coverage Results" MODIFIED="1572890695411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_in_test_isotope_py.coverage" NAME="pytest in test_isotope.py Coverage Results" MODIFIED="1572385139618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Rates$pytest_for_test_reaction_TestReaction_test_mpl_plot.coverage" NAME="pytest for test_reaction.TestReaction.test_mpl_plot Coverage Results" MODIFIED="1572387512725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
@@ -60,29 +63,30 @@
   </component>
   <component name="CoverageViewManager">
     <option name="myAutoScrollToSource" value="true" />
-    <option name="myElementSize" value="338" />
+    <option name="myElementSize" value="354" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1638683442">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Kadonis" value="1" />
-          <entry key="Pipfile" value="1" />
+          <entry key="Pipfile" value="2" />
           <entry key="ReaclibReaction" value="1" />
           <entry key="Reaction" value="1" />
           <entry key="cfg" value="2" />
-          <entry key="coverage" value="2" />
+          <entry key="coverage" value="3" />
           <entry key="fwf" value="1" />
           <entry key="gitignore" value="1" />
+          <entry key="ini" value="2" />
           <entry key="ipynb" value="4" />
           <entry key="kadonis_mock" value="4" />
           <entry key="lock" value="1" />
           <entry key="pstat" value="1" />
-          <entry key="py" value="19" />
+          <entry key="py" value="20" />
           <entry key="pyi" value="1" />
           <entry key="reaclib_mock" value="2" />
           <entry key="sh" value="1" />
-          <entry key="yml" value="1" />
+          <entry key="yml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -90,32 +94,36 @@
           <entry key="Bash" value="1" />
           <entry key="Git file" value="1" />
           <entry key="IPNB" value="4" />
-          <entry key="Ini" value="2" />
-          <entry key="PLAIN_TEXT" value="11" />
+          <entry key="Ini" value="4" />
+          <entry key="PLAIN_TEXT" value="12" />
           <entry key="Profiler Session" value="1" />
-          <entry key="Python" value="18" />
+          <entry key="Python" value="19" />
           <entry key="PythonStub" value="1" />
-          <entry key="TOML" value="1" />
+          <entry key="TOML" value="2" />
           <entry key="UML" value="3" />
-          <entry key="YAML" value="1" />
+          <entry key="YAML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Pipfile" value="4" />
-          <entry key="Python Console" value="182" />
+          <entry key="Pipfile" value="41" />
+          <entry key="Python Console" value="194" />
           <entry key="dummy" value="5" />
+          <entry key="ini" value="102" />
           <entry key="kadonis_mock" value="1" />
-          <entry key="py" value="8890" />
+          <entry key="py" value="8893" />
           <entry key="reaclib_mock" value="2" />
-          <entry key="txt" value="560" />
+          <entry key="txt" value="592" />
+          <entry key="yml" value="69" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="568" />
-          <entry key="Python" value="9072" />
-          <entry key="TOML" value="4" />
+          <entry key="Ini" value="102" />
+          <entry key="PLAIN_TEXT" value="600" />
+          <entry key="Python" value="9087" />
+          <entry key="TOML" value="41" />
+          <entry key="YAML" value="69" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -133,13 +141,13 @@
     <favorites_list name="Rates" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.41530055">
+    <splitter split-orientation="horizontal" split-proportion="0.4612428">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/rates/isotope.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="11645">
+                <state relative-caret-position="17">
                   <caret line="688" column="10" selection-start-line="688" selection-start-column="10" selection-end-line="688" selection-end-column="10" />
                 </state>
               </provider>
@@ -157,11 +165,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/rates/reaction.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="595">
-                  <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+                <state relative-caret-position="-2634">
+                  <caret line="37" selection-start-line="37" selection-end-line="37" />
                   <folding>
                     <element signature="e#156#167#0" expanded="true" />
                     <marker date="1572952768999" expanded="true" signature="1070:1309" ph="..." />
@@ -171,14 +179,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/rates/reaclib_file.py">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/tox.ini">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="337">
-                  <caret line="53" column="26" lean-forward="true" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
-                  <folding>
-                    <marker date="1572888457092" expanded="true" signature="707:1280" ph="..." />
-                  </folding>
+                <state relative-caret-position="221">
+                  <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
                 </state>
               </provider>
             </entry>
@@ -186,8 +191,29 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/setup.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="2" selection-start-line="2" selection-end-line="2" />
+                <state relative-caret-position="578">
+                  <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Pipfile">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="340">
+                  <caret line="20" selection-start-line="20" selection-end-line="20" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/rates/reaclib_file.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="337">
+                  <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+                  <folding>
+                    <marker date="1572888457092" expanded="true" signature="707:1280" ph="..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -205,20 +231,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tests/test_reaclib_file.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="644">
-                  <caret line="105" column="12" selection-start-line="105" selection-start-column="12" selection-end-line="105" selection-end-column="12" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/.gitignore">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1020">
-                  <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+                <state relative-caret-position="1836">
+                  <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
                 </state>
               </provider>
             </entry>
@@ -237,6 +254,15 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="527">
                   <caret line="34" column="38" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="38" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="405">
+                  <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
@@ -276,17 +302,19 @@
         <option value="$PROJECT_DIR$/rates/kadonis_file.py" />
         <option value="$PROJECT_DIR$/rates/temperature.py" />
         <option value="$PROJECT_DIR$/rates/__init__.py" />
-        <option value="$PROJECT_DIR$/Pipfile" />
         <option value="$PROJECT_DIR$/tests/test_temperature.py" />
         <option value="$PROJECT_DIR$/rates/isotope.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/rates/reaclib_file.py" />
         <option value="$PROJECT_DIR$/tests/test_isotope.py" />
         <option value="$PROJECT_DIR$/tests/test_reaction.py" />
         <option value="$PROJECT_DIR$/tests/test_kadonis_file.py" />
         <option value="$PROJECT_DIR$/tests/test_reaclib_file.py" />
         <option value="$PROJECT_DIR$/rates/reaction.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Pipfile" />
+        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/tox.ini" />
+        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
       </list>
     </option>
   </component>
@@ -297,7 +325,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
+    <option name="x" value="2459" />
     <option name="y" value="-8" />
     <option name="width" value="697" />
     <option name="height" value="745" />
@@ -357,6 +385,7 @@
   <component name="PropertiesComponent">
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/.coverage" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -390,7 +419,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.pytest in tests">
+  <component name="RunManager" selected="Tox.Tox">
     <configuration name="Rates" type="JupiterNotebook" factoryName="Jupyter Notebook">
       <module name="Rates" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -431,20 +460,16 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_kadonis_file.test_test_file_exists" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="Tox" type="Tox" factoryName="Tox" temporary="true">
       <module name="Rates" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_kadonis_file.test_test_file_exists&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="pytest for test_reaclib_file.TestReaclib" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
@@ -514,19 +539,19 @@
     <list>
       <item itemvalue="Jupyter Notebook.Rates" />
       <item itemvalue="Python tests.pytest in tests" />
-      <item itemvalue="Python tests.pytest for test_kadonis_file.test_test_file_exists" />
       <item itemvalue="Python tests.pytest for test_reaclib_file.TestReaclib" />
       <item itemvalue="Python tests.pytest in test_kadonis_file.py" />
       <item itemvalue="Python.reaction" />
       <item itemvalue="Python tests.pytest in test_reaclib_file.py" />
+      <item itemvalue="Tox.Tox" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Tox.Tox" />
         <item itemvalue="Python tests.pytest for test_reaclib_file.TestReaclib" />
         <item itemvalue="Python tests.pytest in test_reaclib_file.py" />
         <item itemvalue="Python.reaction" />
         <item itemvalue="Python tests.pytest in test_kadonis_file.py" />
-        <item itemvalue="Python tests.pytest for test_kadonis_file.test_test_file_exists" />
       </list>
     </recent_temporary>
   </component>
@@ -717,39 +742,46 @@
       <option name="project" value="LOCAL" />
       <updated>1572890829460</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Updated git ignore file">
+      <created>1572952805719</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1572952805719</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="pytest_for_test_reaclib_file_TestReaclib - 2019.11.04 at 18h 46m 39s.xml">
-      <configuration name="pytest for test_reaclib_file.TestReaclib" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_for_test_kadonis_file_test_test_file_exists - 2019.11.04 at 18h 47m 11s.xml">
-      <configuration name="pytest for test_kadonis_file.test_test_file_exists" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_in_test_kadonis_file_py - 2019.11.04 at 18h 47m 16s.xml">
-      <configuration name="pytest in test_kadonis_file.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_in_test_kadonis_file_py - 2019.11.04 at 18h 47m 35s.xml">
-      <configuration name="pytest in test_kadonis_file.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_for_test_reaclib_file_TestReaclib - 2019.11.04 at 18h 50m 25s.xml">
-      <configuration name="pytest for test_reaclib_file.TestReaclib" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_in_test_reaclib_file_py - 2019.11.04 at 18h 51m 18s.xml">
-      <configuration name="pytest in test_reaclib_file.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_for_test_reaclib_file_TestReaclib - 2019.11.04 at 18h 52m 13s.xml">
-      <configuration name="pytest for test_reaclib_file.TestReaclib" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_in_tests - 2019.11.05 at 11h 11m 43s.xml">
+    <history-entry file="pytest_in_tests - 2019.11.05 at 11h 19m 32s.xml">
       <configuration name="pytest in tests" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_in_tests - 2019.11.05 at 11h 13m 20s.xml">
+    <history-entry file="pytest_in_tests - 2019.11.05 at 11h 19m 41s.xml">
       <configuration name="pytest in tests" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_in_tests - 2019.11.05 at 11h 13m 28s.xml">
+    <history-entry file="pytest_in_tests - 2019.11.06 at 12h 46m 53s.xml">
       <configuration name="pytest in tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_tests - 2019.11.06 at 12h 47m 01s.xml">
+      <configuration name="pytest in tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_tests - 2019.11.06 at 12h 59m 27s.xml">
+      <configuration name="pytest in tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_tests - 2019.11.06 at 13h 02m 55s.xml">
+      <configuration name="pytest in tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Tox - 2019.11.06 at 13h 04m 36s.xml">
+      <configuration name="Tox" configurationId="Tox" />
+    </history-entry>
+    <history-entry file="Tox - 2019.11.06 at 13h 05m 38s.xml">
+      <configuration name="Tox" configurationId="Tox" />
+    </history-entry>
+    <history-entry file="Tox - 2019.11.06 at 13h 18m 51s.xml">
+      <configuration name="Tox" configurationId="Tox" />
+    </history-entry>
+    <history-entry file="Tox - 2019.11.06 at 13h 21m 48s.xml">
+      <configuration name="Tox" configurationId="Tox" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -765,12 +797,12 @@
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48083067" visible="true" weight="0.16791044" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48083067" visible="true" weight="0.16791044" />
       <window_info id="Structure" order="1" sideWeight="0.51916933" side_tool="true" weight="0.1663113" />
       <window_info id="Favorites" order="2" sideWeight="0.51916933" side_tool="true" weight="0.1663113" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5053305" weight="0.31404072" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5053305" weight="0.33118972" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39875388" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -779,7 +811,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" sideWeight="0.510661" weight="0.32827735" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4946695" side_tool="true" weight="0.21436228" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3290461" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3290461" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.5154584" weight="0.2926045" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32936078" />
       <window_info anchor="bottom" id="Mypy" order="14" />
@@ -790,7 +822,7 @@
       <window_info anchor="right" id="SciView" order="3" sideWeight="0.48939395" weight="0.24840085" />
       <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="4" sideWeight="0.513302" side_tool="true" weight="0.26332623" />
       <window_info anchor="right" id="Database" order="5" weight="0.32995737" />
-      <window_info anchor="right" id="Coverage" order="6" sideWeight="0.51060605" side_tool="true" visible="true" weight="0.24840085" />
+      <window_info anchor="right" id="Coverage" order="6" sideWeight="0.51060605" side_tool="true" weight="0.24840085" />
     </layout>
   </component>
   <component name="ToolsProjectConfig">
@@ -844,7 +876,8 @@
     <MESSAGE value="Fixed test" />
     <MESSAGE value="Added dev only installs to pipfile" />
     <MESSAGE value="Added dunder eq method to Reaction so all reactions with the same targets and products are equal." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added dunder eq method to Reaction so all reactions with the same targets and products are equal." />
+    <MESSAGE value="Updated git ignore file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated git ignore file" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/rates$pytest_for_test_temperature_TestTemperature.coverage" NAME="pytest for test_temperature.TestTemperature Coverage Results" MODIFIED="1571823599231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
@@ -958,13 +991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notebooks/test.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -976,13 +1002,6 @@
     <entry file="file://$PROJECT_DIR$/Untitled.ipynb" />
     <entry file="file://$PROJECT_DIR$/Pipfile.lock">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Pipfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/reaclib_mock">
       <provider selected="true" editor-type-id="text-editor">
@@ -1022,16 +1041,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/.coverage" />
-    <entry file="file://$PROJECT_DIR$/.coverage">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rates/isotope.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11645">
+        <state relative-caret-position="17">
           <caret line="688" column="10" selection-start-line="688" selection-start-column="10" selection-end-line="688" selection-end-column="10" />
         </state>
       </provider>
@@ -1046,24 +1058,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_reaction.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
           <caret line="66" column="37" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1081,17 +1079,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_reaclib_file.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="105" column="12" selection-start-line="105" selection-start-column="12" selection-end-line="105" selection-end-column="12" />
+        <state relative-caret-position="-1228">
+          <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.coverage">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="57" selection-start-column="57" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rates/reaclib_file.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
-          <caret line="53" column="26" lean-forward="true" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+          <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
           <folding>
             <marker date="1572888457092" expanded="true" signature="707:1280" ph="..." />
           </folding>
@@ -1100,13 +1105,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rates/reaction.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+        <state relative-caret-position="-2634">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
           <folding>
             <element signature="e#156#167#0" expanded="true" />
             <marker date="1572952768999" expanded="true" signature="1070:1309" ph="..." />
             <marker date="1572952768999" expanded="true" signature="1363:1372" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_reaclib_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pipfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tox.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
         </state>
       </provider>
     </entry>
