@@ -7,7 +7,8 @@ before_script:
 
 stages:
   - Analysis
-  - Test
+  - Pytest
+  - Tox
 
 flake8:
   image: "python:3.7"
@@ -18,7 +19,17 @@ flake8:
   
 pytest:
   image: "python:3.7"
-  stage: Test
+  stage: Pytest
   script:
-  - pip install tox --quiet
-  - tox -e py37
+  - pip install pytest --quiet
+  - pip install pytest-cov --quiet
+  - pytest --cov=rates --durations=0 tests/
+
+tox:
+  image: "python:3.7"
+  stage: Tox
+  script:
+    - pip install tox --quiet
+    - tox
+
+
