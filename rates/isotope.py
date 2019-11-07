@@ -696,7 +696,7 @@ class Isotope:
         self.isomer = False
 
         if self.is_stable or self.is_primordial:
-            pass
+            return self
         elif self.mass_number == 8:
             self.mass_number = 4
             self.charge_number = 2
@@ -801,7 +801,7 @@ class Isotope:
 
     @staticmethod
     def number_to_ppn_name(
-        charge_number: Real, mass_number: Real, isomer: bool = False
+        charge_number: Real, mass_number: Real, isomer: int = 1
     ) -> str:
         """Convert charge and mass number to PPN name.
 
@@ -809,7 +809,8 @@ class Isotope:
         ----------
         charge_number : [int, float]
         mass_number : [int, float]
-        isomer : bool
+        isomer : int {1, 2}
+            1 for false, 2 for true.
 
         Returns
         -------

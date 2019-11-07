@@ -89,3 +89,18 @@ class TestIsotope:
     def test_is_primordial(self):
         for s, j in Isotope.primordial:
             assert Isotope(s, j).is_primordial
+
+    def test_number_to_ppn_name(self):
+        assert Isotope.number_to_ppn_name(10, 10, 1) == 'NE 10'
+
+        assert Isotope.number_to_ppn_name(10, 10, 2) == 'NE*10'
+
+    def test_number_to_ppn_name_error(self):
+        with pytest.raises(ValueError):
+            Isotope.number_to_ppn_name(10, 10, 3)
+
+    def test_ppn_name_to_numbers(self):
+        assert Isotope.ppn_name_to_numbers('NE 10') == (10, 10)
+
+    def test_decay_isotope(self):
+        assert Isotope.decay_isotope(10, 10) == (5, 10, False)
