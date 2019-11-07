@@ -103,7 +103,7 @@ class TestReaclib:
 
     def test_getitem(self):
         # TODO: write test for __getitem__
-        pass
+        assert self.reaclib['test'] == 'todo'
 
     def test_get_n_gamma(self):
 

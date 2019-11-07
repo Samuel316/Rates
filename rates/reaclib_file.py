@@ -30,7 +30,7 @@ class Reaclib:
         self.df = pd.read_pickle(file_path)
 
     def __getitem__(self, reaction: Reaction):
-        pass  # make this return reactions
+        return 'todo'  # make this return reactions
 
     def get_n_gamma(self, target: Union[Isotope, str]) -> ReaclibReaction:
         """Gets reaction from target Isotope, matches __getitem__ method in the Kadonis class
