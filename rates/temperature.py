@@ -50,7 +50,7 @@ class Temperature:
         self.unit = "Gk"
 
     def __str__(self) -> str:
-        return str(self) + self.unit
+        return str(self.gk) + self.unit
 
     @property
     def kev(self) -> [Real, numpy.array]:

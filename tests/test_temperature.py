@@ -18,6 +18,10 @@ from rates.temperature import Temperature
 
 
 class TestTemperature:
+    def test_str(self):
+        temp = Temperature(0.3)
+        assert str(temp) == "0.3Gk"
+
     def test_gk_input(self):
         temp = Temperature(0.3)
 
