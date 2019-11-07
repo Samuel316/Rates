@@ -46,3 +46,8 @@ class TestKadonis:
         k = Kadonis.read_file(kadonis_file)
 
         assert str(k["Li6"]) == "n+Li6 -> Li7"
+
+    def test_getitem_error(self):
+        with pytest.raises(Exception):
+            k = Kadonis.read_file(kadonis_file)
+            k["Li12"]
