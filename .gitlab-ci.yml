@@ -1,3 +1,5 @@
+image: "python:3.7"
+
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
@@ -7,18 +9,26 @@ before_script:
 
 stages:
   - Analysis
-  - Test
+  - Pytest
+  - Tox
 
 flake8:
-  image: "python:3.7"
   stage: Analysis
   script:
   - pip install flake8 --quiet
   - flake8 --max-line-length=120 bild/*.py
   
 pytest:
-  image: "python:3.7"
-  stage: Test
+  stage: Pytest
   script:
-  - pip install tox --quiet
-  - tox -e py37
+  - pip install pytest --quiet
+  - pip install pytest-cov --quiet
+  - pytest --cov=rates --durations=0 tests/
+
+tox:
+  stage: Tox
+  script:
+    - pip install tox --quiet
+    - tox
+
+
