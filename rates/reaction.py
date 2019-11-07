@@ -57,7 +57,7 @@ class Reaction:
             [str(i) for i in other.products]
         )
 
-    def mpl_plt(
+    def mpl_plot(
         self, ax: plt.axis = None, temp_units: str = "Gk", **kwargs
     ) -> plt.axis:
         """
@@ -152,7 +152,7 @@ class ReaclibReaction(Reaction):
                 **kwargs
             )
 
-        ax = super().mpl_plt(ax=ax, temp_unit=temp_unit)
+        ax = super().mpl_plot(ax=ax, temp_unit=temp_unit)
 
         return ax
 
@@ -264,6 +264,6 @@ class KadonisReaction(Reaction):
 
         ax.set_yscale("log")
 
-        ax = super().mpl_plt(ax, temp_units=temp_unit)
+        ax = super().mpl_plot(ax, temp_units=temp_unit)
 
         return ax

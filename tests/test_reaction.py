@@ -13,6 +13,9 @@ Return
 """
 import pytest
 
+import numpy as np
+import matplotlib.pyplot as plt
+
 from rates.reaction import Reaction, ReaclibReaction, KadonisReaction
 from rates.isotope import Isotope
 
@@ -49,7 +52,7 @@ class TestReaction:
 
     def test_mpl_plot(self):
         assert (
-            str(Reaction(["n"], ["p"]).mpl_plt())
+            str(Reaction(["n"], ["p"]).mpl_plot())
             == "AxesSubplot(0.125,0.11;0.775x0.77)"
         )
 
@@ -83,6 +86,39 @@ class TestReaclibReaction:
             == "Fe45 -> p+p+p+Ti42"
         )
 
+    def test_reaclib_mpl_plot(self):
+        r = (
+            ReaclibReaction.reaclib_factory(
+                1, ["n", "p"], a_rates=[1, 1, 1, 1, 1, 1, 1], label="Test"
+            )
+            .mpl_plot()
+            .lines[0]
+            .get_xydata()
+        )
+
+        assert np.mean(r) == 1.9733072490132147e24
+        assert np.max(r) == 1.3063924607895084e27
+        assert np.min(r) == 0.1
+
+        plt.clf()
+
+        r = (
+            ReaclibReaction.reaclib_factory(
+                1, ["n", "p"], a_rates=[1, 1, 1, 1, 1, 1, 1], label="Test"
+            )
+                .mpl_plot(temp_unit="KeV")
+                .lines[0]
+                .get_xydata()
+        )
+
+        assert np.mean(r) == 1.9733072490132147e24
+        assert np.max(r) == 1.3063924607895084e27
+        assert np.min(r) == 8.61733929308519
+
+        plt.clf()
+
+
+
 
 class TestKadonisReaction:
     def test_init(self):
@@ -95,3 +131,25 @@ class TestKadonisReaction:
                 str(KadonisReaction(Isotope(7, 14), rr=[1.0] * 12, err=[0.0] * 12))
                 == "n+N14 -> N15"
             )
+
+    def test_kadonis_mpl_plot(self):
+        rk = KadonisReaction("c12", [1] * 12, [1] * 12).mpl_plot().lines[0].get_xydata()
+
+        assert np.mean(rk) == 0.7141999137499999
+        assert np.max(rk) == 1.1604510000000001
+        assert np.min(rk) == 0.05802255
+
+        plt.clf()
+
+        rk = (
+            KadonisReaction("c12", [1] * 12, [1] * 12)
+            .mpl_plot(temp_unit="KeV")
+            .lines[0]
+            .get_xydata()
+        )
+
+        assert np.mean(rk) == 18.958333333333332
+        assert np.max(rk) == 100.0
+        assert np.min(rk) == 1.0
+
+        plt.clf()
