@@ -3,10 +3,6 @@ image: "python:3.7"
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
-before_script:
-  - python --version
-  - python -m pip install -e .
-
 stages:
   - Analysis
   - Test
@@ -14,6 +10,7 @@ stages:
 flake8:
   stage: Analysis
   script:
+  - python -m pip install -e .
   - python -m pip install flake8 --quiet
   - flake8 --max-line-length=120 bild/*.py
 
@@ -21,12 +18,14 @@ flake8:
 mypy:
   stage: Analysis
   script:
+  - python -m pip install -e .
   - python -m pip install mypy --quiet
   - mypy -p rates
 
 pytest:
   stage: Test
   script:
+  - python -m pip install -e .
   - python -m pip install pytest --quiet
   - python -m pip install pytest-cov --quiet
   - pytest --cov=rates --durations=0 tests/
@@ -35,9 +34,9 @@ tox:
   image: "alpine:latest"
   stage: Test
   script:
-    - apk add python3.6
-    - apk add python3.7
-    - python -m pip install tox --quiet
-    - tox
+  - apk add python3.6
+  - apk add python3.7
+  - python -m pip install tox --quiet
+  - tox
 
 
