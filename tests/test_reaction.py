@@ -63,7 +63,7 @@ class TestReaction:
 
     def test_eg_notimplemented(self):
         with pytest.raises(NotImplementedError):
-            Reaction(["n", "p"], ["d"]) == 'str'
+            Reaction(["n", "p"], ["d"]) == "str"
 
 
 class TestReaclibReaction:
@@ -116,9 +116,9 @@ class TestReaclibReaction:
             ReaclibReaction.reaclib_factory(
                 1, ["n", "p"], a_rates=[1, 1, 1, 1, 1, 1, 1], label="Test"
             )
-                .mpl_plot(temp_unit="KeV")
-                .lines[0]
-                .get_xydata()
+            .mpl_plot(temp_unit="KeV")
+            .lines[0]
+            .get_xydata()
         )
 
         assert np.mean(r) == 1.9733072490132147e24
@@ -126,8 +126,6 @@ class TestReaclibReaction:
         assert np.min(r) == 8.61733929308519
 
         plt.clf()
-
-
 
 
 class TestKadonisReaction:

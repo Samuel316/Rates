@@ -9,25 +9,34 @@ before_script:
 
 stages:
   - Analysis
-  - Pytest
-  - Tox
+  - Test
 
 flake8:
   stage: Analysis
   script:
   - python -m pip install flake8 --quiet
   - flake8 --max-line-length=120 bild/*.py
-  
+
+
+mypy:
+  stage: Analysis
+  script:
+  - python -m pip install mypy --quiet
+  - mypy -p rates
+
 pytest:
-  stage: Pytest
+  stage: Test
   script:
   - python -m pip install pytest --quiet
   - python -m pip install pytest-cov --quiet
   - pytest --cov=rates --durations=0 tests/
 
 tox:
-  stage: Tox
+  image: "alpine:latest"
+  stage: Test
   script:
+    - apk add python3.6
+    - apk add python3.7
     - python -m pip install tox --quiet
     - tox
 
