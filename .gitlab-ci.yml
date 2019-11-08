@@ -31,11 +31,9 @@ pytest:
   - pytest --cov=rates --durations=0 tests/
 
 tox:
-  image: "alpine:latest"
   stage: Test
   script:
   - apk add python3.6
-  - apk add python3.7
   - python -m pip install tox --quiet
   - tox
 
