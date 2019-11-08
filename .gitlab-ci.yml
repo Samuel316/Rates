@@ -33,7 +33,6 @@ pytest:
 tox:
   stage: Test
   script:
-  - apk add python3.6
   - python -m pip install tox --quiet
   - tox
 
