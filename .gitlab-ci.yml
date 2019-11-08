@@ -5,7 +5,7 @@ variables:
 
 before_script:
   - python --version
-  - pip install -e .
+  - python -m pip install -e .
 
 stages:
   - Analysis
@@ -15,20 +15,20 @@ stages:
 flake8:
   stage: Analysis
   script:
-  - pip install flake8 --quiet
+  - python -m pip install flake8 --quiet
   - flake8 --max-line-length=120 bild/*.py
   
 pytest:
   stage: Pytest
   script:
-  - pip install pytest --quiet
-  - pip install pytest-cov --quiet
+  - python -m pip install pytest --quiet
+  - python -m pip install pytest-cov --quiet
   - pytest --cov=rates --durations=0 tests/
 
 tox:
   stage: Tox
   script:
-    - pip install tox --quiet
+    - python -m pip install tox --quiet
     - tox
 
 
