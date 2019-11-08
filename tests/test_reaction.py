@@ -61,6 +61,10 @@ class TestReaction:
 
         assert Reaction(["n", "p"], ["d"]) != Reaction(["p", "p"], ["d"])
 
+    def test_eg_notimplemented(self):
+        with pytest.raises(NotImplementedError):
+            Reaction(["n", "p"], ["d"]) == 'str'
+
 
 class TestReaclibReaction:
     def test_init(self):
@@ -85,6 +89,12 @@ class TestReaclibReaction:
             ).__str__()
             == "Fe45 -> p+p+p+Ti42"
         )
+
+    def test_reaclib_factory_exception(self):
+        with pytest.raises(Exception):
+            ReaclibReaction.reaclib_factory(
+                12, ["fe45", "p", "p", "p", "ti42"], a_rates=[0, 0, 0, 0, 0]
+            )
 
     def test_reaclib_mpl_plot(self):
         r = (

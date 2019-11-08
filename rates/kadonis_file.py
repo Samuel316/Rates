@@ -12,10 +12,12 @@ Return
 ------
 """
 
+
 import numpy as np
 import pandas as pd
 
 from pathlib import Path
+from typing import Union
 
 from rates.isotope import Isotope
 from rates.reaction import KadonisReaction
@@ -26,11 +28,11 @@ class Kadonis:
 
     """
 
-    def __init__(self, file_path: [str, Path]):
+    def __init__(self, file_path: Union[str, Path]) -> None:
         self.file_path = Path(file_path)
         self.df = pd.read_pickle(file_path)
 
-    def __getitem__(self, target) -> KadonisReaction:
+    def __getitem__(self, target: Union[str, "Isotope"]) -> KadonisReaction:
         target = Isotope.name(target)
         try:
             return self.df[
@@ -41,7 +43,7 @@ class Kadonis:
             raise Exception(str(target) + " Not found in file")
 
     @classmethod
-    def read_file(cls, file_path: str):
+    def read_file(cls, file_path: Union[str, Path]) -> "Kadonis":
         """
 
         Parameters
@@ -104,7 +106,3 @@ class Kadonis:
         pickle_path = "{0}.temp".format(str(file_path.parent / file_path.stem))
         df.to_pickle(pickle_path)
         return cls(file_path=pickle_path)
-
-
-if __name__ == "__main__":
-    pass

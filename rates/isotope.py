@@ -12,10 +12,11 @@ Return
 ------
 """
 
-from typing import Tuple, Union
-from numbers import Real
+from typing import Tuple, Union, Optional, Any
 
 import numpy as np
+
+real = Union[float, int]
 
 
 class Isotope:
@@ -570,7 +571,7 @@ class Isotope:
     )
 
     def __init__(
-        self, charge_number: Real, mass_number: Real, isomer: bool = False
+        self, charge_number: real, mass_number: real, isomer: bool = False
     ) -> None:
         """
         Parameters
@@ -667,12 +668,15 @@ class Isotope:
         -------
         Union[Tuple[int, int], Tuple[int, int, bool]]
 
-
         """
-        if self.isomer or force_isomer:
-            return self.charge_number, self.mass_number, self.isomer
+        num: Any
 
-        return self.charge_number, self.mass_number
+        if self.isomer or force_isomer:
+            num = (self.charge_number, self.mass_number, self.isomer)
+        else:
+            num = (self.charge_number, self.mass_number)
+
+        return num
 
     def decay(self, primordial_as_stable: bool = True) -> "Isotope":
         """
@@ -689,7 +693,7 @@ class Isotope:
         # TODO: This only works from beta decay and beta unstable isotopes
         # Currently the time scale of the decay is assumed to ber a small fraction of the
         # half life of primordial isotopes.
-        stable = self.stable_isotopes + self.primordial
+        stable: np.array[Tuple[int]] = self.stable_isotopes + self.primordial
         stable = np.array(stable)
         stable = stable[stable[:, 0].argsort()]
         # TODO: Isomers
@@ -733,7 +737,7 @@ class Isotope:
         return False
 
     @classmethod
-    def name(cls, name: Union[str, "Isotope"]) -> "Isotope":
+    def name(cls, name: Union["Isotope", str]) -> "Isotope":
         """ Factory method from string representation.
 
         Parameters
@@ -747,18 +751,21 @@ class Isotope:
 
         """
         if isinstance(name, cls):
-            iso = name
-        elif name.lower() == "n":
+            return name
+        else:
+            name_str: str = str(name)
+
+        if name_str.lower() == "n":
             iso = cls(0, 1)
-        elif name.lower() == "p":
+        elif name_str.lower() == "p":
             iso = cls(1, 1)
-        elif name.lower() == "d":
+        elif name_str.lower() == "d":
             iso = cls(1, 2)
-        elif name.lower() == "t":
+        elif name_str.lower() == "t":
             iso = cls(1, 3)
         else:
-            sym = "".join([c for c in name if c.isalpha()]).lower().capitalize()
-            num = "".join([c for c in name if c.isnumeric()])
+            sym = "".join([c for c in name_str if c.isalpha()]).lower().capitalize()
+            num = "".join([c for c in name_str if c.isnumeric()])
             charge_number = Isotope.charge_numbers[sym]
             iso = cls(charge_number, int(num))
 
@@ -801,7 +808,7 @@ class Isotope:
 
     @staticmethod
     def number_to_ppn_name(
-        charge_number: Real, mass_number: Real, isomer: int = 1
+        charge_number: real, mass_number: real, isomer: int = 1
     ) -> str:
         """Convert charge and mass number to PPN name.
 
@@ -849,8 +856,8 @@ class Isotope:
 
     @staticmethod
     def decay_isotope(
-        charge_number: Real, mass_number: Real, isomer: bool = False
-    ) -> Tuple[int, int, bool]:
+        charge_number: real, mass_number: real, isomer: bool = False
+    ) -> Union[Tuple[int, int], Tuple[int, int, bool]]:
         """
 
         Parameters

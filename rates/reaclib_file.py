@@ -11,7 +11,7 @@ Parameters
 Return
 ------
 """
-from typing import Union
+from typing import Union, List, Any, Dict
 from pathlib import Path
 
 import pandas as pd
@@ -25,11 +25,11 @@ class Reaclib:
 
     """
 
-    def __init__(self, file_path: [str, Path]):
+    def __init__(self, file_path: Union[str, Path])-> None:
         self.file_path = Path(file_path)
         self.df = pd.read_pickle(file_path)
 
-    def __getitem__(self, reaction: Reaction):
+    def __getitem__(self, reaction: Reaction) -> str:
         return "todo"  # make this return reactions
 
     def get_n_gamma(self, target: Union[Isotope, str]) -> ReaclibReaction:
@@ -55,7 +55,7 @@ class Reaclib:
             raise Exception(str(target) + " Not found in file")
 
     @classmethod
-    def read_file(cls, file_path: str):
+    def read_file(cls, file_path: Union[str, Path]):
         """
 
         Parameters
@@ -68,10 +68,10 @@ class Reaclib:
         """
         file_path = Path(file_path)
 
-        reaclib = {}
+        reaclib: Dict[str, List[Union[float, int, List[Union[float, int]]]]] = {}
 
-        with open(file_path) as reaclib_file:
-            reaclib_file = reaclib_file.readlines()
+        with open(file_path) as reaclib_file_path:
+            reaclib_file: List[str] = reaclib_file_path.readlines()
 
         reaclib["Chapter"] = [int(i.strip()) for i in reaclib_file[0::4]]
 
@@ -96,7 +96,7 @@ class Reaclib:
             )
         )
 
-        line3 = [[l.strip() for l in line] for line in line3[0:-1]] + [line3[-1]]
+        line3_striped = [[l.strip() for l in line] for line in line3[0:-1]] + [line3[-1]]
 
         (
             reaclib["E0"],
@@ -109,7 +109,7 @@ class Reaclib:
             reaclib["RateType"],
             reaclib["ReverseRate"],
             reaclib["QValue"],
-        ) = line3
+        ) = line3_striped
 
         rates = [
             [i[0:13], i[13:26], i[26:39], i[39:52]] + [j[0:13], j[13:26], j[26:39]]

@@ -12,6 +12,7 @@ Return
 ------
 """
 from numbers import Real
+from typing import Union
 
 import numpy
 
@@ -28,7 +29,7 @@ class Temperature:
 
     """
 
-    def __init__(self, temperature: [Real, numpy.array], unit: str = "Gk") -> None:
+    def __init__(self, temperature: Union[Real, numpy.array], unit: str = "Gk") -> None:
         """
 
         Parameters
@@ -53,7 +54,7 @@ class Temperature:
         return str(self.gk) + self.unit
 
     @property
-    def kev(self) -> [Real, numpy.array]:
+    def kev(self) -> Union[Real, numpy.array]:
         """Temperature in Kev.
 
         Returns
@@ -64,6 +65,6 @@ class Temperature:
 
         if self._kev is None:
             self._kev = self.gk / 1.160451e-2
-            return self._kev
         elif self._kev is not None:
-            return self._kev
+            pass
+        return self._kev

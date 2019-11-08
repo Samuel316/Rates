@@ -12,8 +12,7 @@ Return
 ------
 """
 import copy
-from numbers import Real
-from typing import Union, List
+from typing import Union, List, Iterable, Sequence
 from collections import Counter
 
 import numpy as np
@@ -22,7 +21,8 @@ import matplotlib.pyplot as plt
 from rates.isotope import Isotope
 from rates.temperature import Temperature
 
-iso_list_type = List[Union[Isotope, str]]
+real = Union[float, int]
+iso_list_type = Iterable[Union[Isotope, str]]
 
 
 class Reaction:
@@ -50,7 +50,10 @@ class Reaction:
             "+".join([str(i) for i in self.products]),
         )
 
-    def __eq__(self, other: "Reaction") -> bool:
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Reaction):
+            raise NotImplementedError
+
         return Counter([str(i) for i in self.targets]) == Counter(
             [str(i) for i in other.targets]
         ) and Counter([str(i) for i in self.products]) == Counter(
@@ -58,21 +61,21 @@ class Reaction:
         )
 
     def mpl_plot(
-        self, ax: plt.axis = None, temp_units: str = "Gk", **kwargs
+        self, ax: plt.axis = None, temp_unit: str = "Gk", **kwargs
     ) -> plt.axis:
         """
 
         Parameters
         ----------
         ax :
-        temp_units :
+        temp_unit :
         kwargs :
         """
         ax = ax or plt.gca()
         ax.set_title("Reaction Rate")
         ax.set_ylabel("Rate ($cm^3\;mol^{-1}\;sec^{-1}$)")
 
-        if temp_units is "Gk":
+        if temp_unit is "Gk":
             ax.set_xlabel("Temperature ($GK$)")
 
         return ax
@@ -96,14 +99,14 @@ class ReaclibReaction(Reaction):
         self,
         targets: iso_list_type,
         products: iso_list_type,
-        a_rates: List[Real],
+        a_rates: Sequence[real],
         label: str,
     ) -> None:
         super().__init__(targets, products)
         self.a = a_rates
         self.label = label
 
-    def rate(self, temp9: Union[Real, np.asarray]):
+    def rate(self, temp9: Union[real, np.asarray]):
         """
 
         Parameters
@@ -124,7 +127,9 @@ class ReaclibReaction(Reaction):
             + self.a[6] * np.log(temp9)
         )
 
-    def mpl_plot(self, ax: plt.axis = None, temp_unit: str = "GK", **kwargs):
+    def mpl_plot(
+        self, ax: plt.axis = None, temp_unit: str = "GK", **kwargs
+    ) -> plt.axis:
         """
 
         Parameters
@@ -158,7 +163,11 @@ class ReaclibReaction(Reaction):
 
     @classmethod
     def reaclib_factory(
-        cls, chapter: int, ei: iter, a_rates: iter, label: str = None
+        cls,
+        chapter: int,
+        ei: Sequence[str],
+        a_rates: Sequence[real],
+        label: str = "None",
     ) -> "ReaclibReaction":
         """
 
@@ -174,27 +183,31 @@ class ReaclibReaction(Reaction):
 
         """
         if chapter is 1:
-            return cls([ei[0]], [ei[1]], a_rates, label)
+            reaclib_reaction = cls([ei[0]], [ei[1]], a_rates, label)
         elif chapter is 2:
-            return cls([ei[0]], ei[1:3], a_rates, label)
+            reaclib_reaction = cls([ei[0]], ei[1:3], a_rates, label)
         elif chapter is 3:
-            return cls([ei[0]], ei[1:4], a_rates, label)
+            reaclib_reaction = cls([ei[0]], ei[1:4], a_rates, label)
         elif chapter is 4:
-            return cls(ei[0:2], [ei[2]], a_rates, label)
+            reaclib_reaction = cls(ei[0:2], [ei[2]], a_rates, label)
         elif chapter is 5:
-            return cls(ei[0:2], ei[2:4], a_rates, label)
+            reaclib_reaction = cls(ei[0:2], ei[2:4], a_rates, label)
         elif chapter is 6:
-            return cls(ei[0:2], ei[2:5], a_rates, label)
+            reaclib_reaction = cls(ei[0:2], ei[2:5], a_rates, label)
         elif chapter is 7:
-            return cls(ei[0:2], ei[2:6], a_rates, label)
+            reaclib_reaction = cls(ei[0:2], ei[2:6], a_rates, label)
         elif chapter is 8:
-            return cls(ei[0:3], [ei[3]], a_rates, label)
+            reaclib_reaction = cls(ei[0:3], [ei[3]], a_rates, label)
         elif chapter is 9:
-            return cls(ei[0:3], ei[3:5], a_rates, label)
+            reaclib_reaction = cls(ei[0:3], ei[3:5], a_rates, label)
         elif chapter is 10:
-            return cls(ei[0:4], ei[4:6], a_rates, label)
+            reaclib_reaction = cls(ei[0:4], ei[4:6], a_rates, label)
         elif chapter is 11:
-            return cls([ei[0]], ei[1:5], a_rates, label)
+            reaclib_reaction = cls([ei[0]], ei[1:5], a_rates, label)
+        else:
+            raise Exception
+
+        return reaclib_reaction
 
 
 class KadonisReaction(Reaction):
@@ -214,9 +227,9 @@ class KadonisReaction(Reaction):
     def __init__(
         self,
         target: Union[str, Isotope],
-        rr: List[Real],
-        err: List[Real],
-        temp: List[Real] = (5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100),
+        rr: Iterable[real],
+        err: Iterable[real],
+        temp: Iterable[real] = (5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100),
         temp_units: str = "KeV",
         label: str = "Kadonis",
     ):
@@ -264,6 +277,6 @@ class KadonisReaction(Reaction):
 
         ax.set_yscale("log")
 
-        ax = super().mpl_plot(ax, temp_units=temp_unit)
+        ax = super().mpl_plot(ax, temp_unit=temp_unit)
 
         return ax
