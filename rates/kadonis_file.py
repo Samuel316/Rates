@@ -28,7 +28,14 @@ class Kadonis:
 
     """
 
-    def __init__(self, file_path: Union[str, Path]) -> None:
+    def __init__(
+        self, file_path: Union[str, Path] = None, version: float = None
+    ) -> None:
+
+        if (file_path is None) and (version == 1):
+            file_path = Path(__file__).parent.parent / "Data/kadonis_rrates_1.0.txt"
+        elif (file_path is None) and (version == 0.3):
+            file_path = Path(__file__).parent.parent / "Data/kadonis_rrates_0.3.txt"
 
         self.file_path = Path(file_path.parent / file_path.stem)
         try:
