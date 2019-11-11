@@ -268,6 +268,9 @@ class KadonisReaction(Reaction):
                 label="{0} {1}".format(self.label, self.__str__()),
                 **kwargs
             )
+            ax.scatter(
+                Temperature(np.array(self.temperature), unit=self.temp_unit).gk, self.rr
+            )
         elif temp_unit is "KeV":
             ax.errorbar(
                 Temperature(np.array(self.temperature), unit=self.temp_unit).kev,
@@ -275,6 +278,10 @@ class KadonisReaction(Reaction):
                 yerr=self.err,
                 label="{0} {1}".format(self.label, self.__str__()),
                 **kwargs
+            )
+            ax.scatter(
+                Temperature(np.array(self.temperature), unit=self.temp_unit).kev,
+                self.rr,
             )
 
         ax.set_yscale("log")
