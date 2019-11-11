@@ -26,7 +26,7 @@ def test_test_file_exists():
 
 class TestKadonis:
     def test_read_file(self):
-        k = Kadonis.read_file(kadonis_file)
+        k = Kadonis(kadonis_file)
         assert list(k.df.columns[0:5]) == ["Z", "A", "Isomer", "Sym", "RR(5keV)"]
 
         assert list(k.df.Z) == [1, 1, 2, 3]
@@ -37,22 +37,22 @@ class TestKadonis:
         assert list(k.df.Sym) == ["H", "H", "He", "Li"]
 
     def test_reaction(self):
-        k = Kadonis.read_file(kadonis_file)
+        k = Kadonis(kadonis_file)
 
         assert str(k.df.Reaction.iloc[0]) == "n+p -> d"
         assert str(k.df.Reaction.iloc[3]) == "n+Li6 -> Li7"
 
     def test_getitem(self):
-        k = Kadonis.read_file(kadonis_file)
+        k = Kadonis(kadonis_file)
 
         assert str(k["Li6"]) == "n+Li6 -> Li7"
 
     def test_str(self):
-        k = Kadonis.read_file(kadonis_file)
+        k = Kadonis(kadonis_file)
 
         assert k.__str__() == kadonis_file.stem
 
     def test_getitem_error(self):
         with pytest.raises(Exception):
-            k = Kadonis.read_file(kadonis_file)
+            k = Kadonis(kadonis_file)
             k["Li12"]

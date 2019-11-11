@@ -11,13 +11,13 @@ Parameters
 Return
 ------
 """
-
+from pickle import UnpicklingError
 
 import numpy as np
 import pandas as pd
 
 from pathlib import Path
-from typing import Union
+from typing import Union, Tuple
 
 from rates.isotope import Isotope
 from rates.reaction import KadonisReaction
@@ -28,10 +28,13 @@ class Kadonis:
 
     """
 
-    def __init__(self, file_path: Union[str, Path], version: str = "None") -> None:
-        self.file_path = Path(file_path)
-        self.df = pd.read_pickle(file_path)
-        self.version = version
+    def __init__(self, file_path: Union[str, Path]) -> None:
+
+        self.file_path = Path(file_path.parent / file_path.stem)
+        try:
+            self.df = pd.read_pickle(str(self.file_path) + ".temp")
+        except:
+            self.df = self.read_file(file_path)
 
     def __str__(self) -> str:
         return self.file_path.stem
@@ -46,8 +49,8 @@ class Kadonis:
         except IndexError:
             raise Exception(str(target) + " Not found in file")
 
-    @classmethod
-    def read_file(cls, file_path: Union[str, Path]) -> "Kadonis":
+    @staticmethod
+    def read_file(file_path: Union[str, Path]) -> pd.DataFrame:
         """
 
         Parameters
@@ -148,4 +151,4 @@ class Kadonis:
 
         pickle_path = "{0}.temp".format(str(file_path.parent / file_path.stem))
         df.to_pickle(pickle_path)
-        return cls(file_path=pickle_path, version=str(version))
+        return df
