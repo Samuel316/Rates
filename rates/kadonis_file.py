@@ -28,9 +28,13 @@ class Kadonis:
 
     """
 
-    def __init__(self, file_path: Union[str, Path]) -> None:
+    def __init__(self, file_path: Union[str, Path], version: str = "None") -> None:
         self.file_path = Path(file_path)
         self.df = pd.read_pickle(file_path)
+        self.version = version
+
+    def __str__(self) -> str:
+        return self.file_path.stem
 
     def __getitem__(self, target: Union[str, "Isotope"]) -> KadonisReaction:
         target = Isotope.name(target)
@@ -65,44 +69,83 @@ class Kadonis:
             na_values="-",
         )
 
-        df.drop([" ; reaction rate including SEF in cm3/mole/s"], axis=1, inplace=True)
-        df["Version"] = 1.0
+        try:
+            df.drop(
+                [" ; reaction rate including SEF in cm3/mole/s"], axis=1, inplace=True
+            )
+            version = 1.0
+        except KeyError:
+            df.rename(
+                {"100(keV); reaction rate including SEF in cm3/mole/s": "100"},
+                axis=1,
+                inplace=True,
+            )
+            version = 0.3
+            print("Warning Loading Kadonis in 0.3 format")
+        except:
+            raise Exception
 
-        df["Reaction"] = df.apply(
-            lambda df: KadonisReaction(
-                target=Isotope(df.Z, df.A),
-                rr=[
-                    df["RR(5keV)"],
-                    df["RR(8keV)"],
-                    df["RR(10keV)"],
-                    df["RR(15keV)"],
-                    df["RR(20keV)"],
-                    df["RR(25keV)"],
-                    df["RR(30keV)"],
-                    df["RR(40keV)"],
-                    df["RR(50keV)"],
-                    df["RR(60keV)"],
-                    df["RR(80keV)"],
-                    df["RR(100keV)"],
-                ],
-                err=[
-                    df["Err(5keV)"],
-                    df["Err(8keV)"],
-                    df["Err(10keV)"],
-                    df["Err(15keV)"],
-                    df["Err(20keV)"],
-                    df["Err(25keV)"],
-                    df["Err(30keV)"],
-                    df["Err(40keV)"],
-                    df["Err(50keV)"],
-                    df["Err(60keV)"],
-                    df["Err(80keV)"],
-                    df["Err(100keV)"],
-                ],
-            ),
-            axis=1,
-        )
+        if version == 1.0:
+            df["Reaction"] = df.apply(
+                lambda df: KadonisReaction(
+                    target=Isotope(df.Z, df.A),
+                    label="Kadonis 1.0",
+                    rr=[
+                        df["RR(5keV)"],
+                        df["RR(8keV)"],
+                        df["RR(10keV)"],
+                        df["RR(15keV)"],
+                        df["RR(20keV)"],
+                        df["RR(25keV)"],
+                        df["RR(30keV)"],
+                        df["RR(40keV)"],
+                        df["RR(50keV)"],
+                        df["RR(60keV)"],
+                        df["RR(80keV)"],
+                        df["RR(100keV)"],
+                    ],
+                    err=[
+                        df["Err(5keV)"],
+                        df["Err(8keV)"],
+                        df["Err(10keV)"],
+                        df["Err(15keV)"],
+                        df["Err(20keV)"],
+                        df["Err(25keV)"],
+                        df["Err(30keV)"],
+                        df["Err(40keV)"],
+                        df["Err(50keV)"],
+                        df["Err(60keV)"],
+                        df["Err(80keV)"],
+                        df["Err(100keV)"],
+                    ],
+                ),
+                axis=1,
+            )
+
+        elif version == 0.3:
+            df["Reaction"] = df.apply(
+                lambda df: KadonisReaction(
+                    target=Isotope(df.Z, df.A),
+                    label="Kadonis 0.3",
+                    rr=[
+                        df["5"],
+                        df["8"],
+                        df["10"],
+                        df["15"],
+                        df["20"],
+                        df["25"],
+                        df["30"],
+                        df["40"],
+                        df["50"],
+                        df["60"],
+                        df["80"],
+                        df["100"],
+                    ],
+                    err=[0.0] * 12,
+                ),
+                axis=1,
+            )
 
         pickle_path = "{0}.temp".format(str(file_path.parent / file_path.stem))
         df.to_pickle(pickle_path)
-        return cls(file_path=pickle_path)
+        return cls(file_path=pickle_path, version=str(version))

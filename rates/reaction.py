@@ -157,6 +157,8 @@ class ReaclibReaction(Reaction):
                 **kwargs
             )
 
+        ax.legend()
+
         ax = super().mpl_plot(ax=ax, temp_unit=temp_unit)
 
         return ax
@@ -276,6 +278,8 @@ class KadonisReaction(Reaction):
             )
 
         ax.set_yscale("log")
+
+        ax.legend()
 
         ax = super().mpl_plot(ax, temp_unit=temp_unit)
 
