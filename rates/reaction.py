@@ -219,7 +219,12 @@ class KadonisReaction(Reaction):
     ----------
     target : Union[str, Isotope]
         Target isotope for n gamma.
-    rr:
+    rr : List[]
+        list of reaction rates corresponding to temperature list.
+    err : List[]
+        List of error corresponding to reaction rates
+    temp : List[]
+        List of temperature corresponding to reaction rates
 
     Attributes
     ----------
@@ -244,6 +249,33 @@ class KadonisReaction(Reaction):
         self.temperature = temp
         self.temp_unit = temp_units
         self.label = label
+
+    def diff(self, rate: "KadonisReaction"):
+        """
+
+        Parameters
+        ----------
+        rate :
+
+        Returns
+        -------
+
+        """
+        if self != rate:
+            print("Different reaction?")
+
+        return KadonisReaction(
+            self.targets[0],
+            rr=[
+                r1 - r2
+                for t1, r1, t2, r2 in zip(
+                    self.temperature, self.rr, rate.temperature, rate.rr
+                )
+            ],
+            err=[0] * len(self.temperature),
+            temp=self.temperature,
+            label="Diff of" + self.label + "and" + rate.label,
+        )
 
     def mpl_plot(self, ax: plt.axis = None, temp_unit: str = "Gk", **kwargs):
         """

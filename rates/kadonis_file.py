@@ -56,6 +56,14 @@ class Kadonis:
         except IndexError:
             raise Exception(str(target) + " Not found in file")
 
+    def in_file(self, target: Union[str, "Isotope"]):
+        target = Isotope.name(target)
+        try:
+            self.__getitem__(target)
+            return True
+        except Exception:
+            return False
+
     @staticmethod
     def read_file(file_path: Union[str, Path]) -> pd.DataFrame:
         """
