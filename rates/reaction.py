@@ -73,7 +73,7 @@ class Reaction:
         """
         ax = ax or plt.gca()
         ax.set_title("Reaction Rate")
-        ax.set_ylabel("Rate ($cm^3\;mol^{-1}\;sec^{-1}$)")
+        ax.set_ylabel(r"Rate ($cm^3\;mol^{-1}\;sec^{-1}$)")
 
         if temp_unit is "Gk":
             ax.set_xlabel("Temperature ($GK$)")
