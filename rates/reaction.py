@@ -154,7 +154,7 @@ class ReaclibReaction(Reaction):
                 Temperature(t).kev,
                 self.rate(t),
                 label=self.label + " " + self.__str__(),
-                **kwargs
+                **kwargs,
             )
 
         ax.legend()
@@ -274,7 +274,7 @@ class KadonisReaction(Reaction):
             ],
             err=[0] * len(self.temperature),
             temp=self.temperature,
-            label="Diff of" + self.label + "and" + rate.label,
+            label=f"Diff of {self.label} and {rate.label}",
         )
 
     def mpl_plot(self, ax: plt.axis = None, temp_unit: str = "Gk", **kwargs):
@@ -298,7 +298,7 @@ class KadonisReaction(Reaction):
                 self.rr,
                 yerr=self.err,
                 label="{0} {1}".format(self.label, self.__str__()),
-                **kwargs
+                **kwargs,
             )
             ax.scatter(
                 Temperature(np.array(self.temperature), unit=self.temp_unit).gk, self.rr
@@ -309,7 +309,7 @@ class KadonisReaction(Reaction):
                 self.rr,
                 yerr=self.err,
                 label="{0} {1}".format(self.label, self.__str__()),
-                **kwargs
+                **kwargs,
             )
             ax.scatter(
                 Temperature(np.array(self.temperature), unit=self.temp_unit).kev,
