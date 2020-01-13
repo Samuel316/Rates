@@ -25,7 +25,7 @@ class Reaclib:
 
     """
 
-    def __init__(self, file_path: Union[str, Path])-> None:
+    def __init__(self, file_path: Union[str, Path]) -> None:
         self.file_path = Path(file_path)
         self.df = pd.read_pickle(file_path)
 
@@ -96,7 +96,9 @@ class Reaclib:
             )
         )
 
-        line3_striped = [[l.strip() for l in line] for line in line3[0:-1]] + [line3[-1]]
+        line3_striped = [[l.strip() for l in line] for line in line3[0:-1]] + [
+            line3[-1]
+        ]
 
         (
             reaclib["E0"],

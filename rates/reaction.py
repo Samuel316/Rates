@@ -12,7 +12,7 @@ Return
 ------
 """
 import copy
-from typing import Union, List, Iterable, Sequence
+from typing import Union, List, Iterable, Sequence, Tuple
 from collections import Counter
 
 import numpy as np
@@ -236,7 +236,7 @@ class KadonisReaction(Reaction):
         target: Union[str, Isotope],
         rr: Iterable[real],
         err: Iterable[real],
-        temp: Iterable[real] = (5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100),
+        temp: Tuple[real] = (5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100),
         temp_units: str = "KeV",
         label: str = "Kadonis",
     ):
@@ -249,6 +249,19 @@ class KadonisReaction(Reaction):
         self.temperature = temp
         self.temp_unit = temp_units
         self.label = label
+
+    def rate(self, temp: real):
+        """
+
+        Parameters
+        ----------
+        temp :
+
+        Returns
+        -------
+
+        """
+        return self.rr[self.temperature.index(temp)]
 
     def diff(self, rate: "KadonisReaction"):
         """
