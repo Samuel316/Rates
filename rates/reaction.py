@@ -263,6 +263,9 @@ class KadonisReaction(Reaction):
         """
         return self.rr[self.temperature.index(temp)]
 
+    def error(self, temp: real):
+        return self.err[self.temperature.index(temp)]
+
     def diff(self, rate: "KadonisReaction"):
         """
 
