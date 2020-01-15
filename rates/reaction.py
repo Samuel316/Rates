@@ -256,14 +256,26 @@ class KadonisReaction(Reaction):
         Parameters
         ----------
         temp :
+            Temperature to return rate for
 
         Returns
         -------
-
+        float
         """
         return self.rr[self.temperature.index(temp)]
 
     def error(self, temp: real):
+        """
+
+        Parameters
+        ----------
+        temp :
+            Temperature to return error for
+
+        Returns
+        -------
+        float
+        """
         return self.err[self.temperature.index(temp)]
 
     def diff(self, rate: "KadonisReaction"):
