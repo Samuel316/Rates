@@ -99,11 +99,14 @@ class TestReaclib:
             for i, d in enumerate(data):
                 assert reaclib.df[column].iloc[i] == d
 
+    def test_default_file(self):
+        Reaclib()
+
     reaclib = Reaclib.read_file((reaclib_path / "reaclib_mock"))
 
     def test_getitem(self):
         # TODO: write test for __getitem__
-        assert self.reaclib['test'] == 'todo'
+        assert self.reaclib["test"] == "todo"
 
     def test_get_n_gamma(self):
 

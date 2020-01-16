@@ -28,7 +28,7 @@ class Reaclib:
     def __init__(self, file_path: Union[str, Path] = None) -> None:
 
         if file_path is None:
-            file_path = Path(__file__).parent.parent / "data/reaclib_default.txt"
+            file_path = Path(__file__).parent.parent / "data/reaclib_default.temp"
 
         self.file_path = Path(file_path)
         self.df = pd.read_pickle(file_path)
