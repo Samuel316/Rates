@@ -33,6 +33,10 @@ class Kadonis:
     version : float = {1, 0.3}
         specifying a version loads a file from within the code.
 
+    Attributes
+    ----------
+
+
     """
 
     def __init__(
@@ -43,7 +47,7 @@ class Kadonis:
             file_path = Path(__file__).parent.parent / "Data/kadonis_rrates_1.0.txt"
         elif (file_path is None) and (version == 0.3):
             file_path = Path(__file__).parent.parent / "Data/kadonis_rrates_0.3.txt"
-        else:
+        elif (file_path is None) and (version is None):
             raise Exception("File not specified")
 
         self.file_path = Path(file_path.parent / file_path.stem)
