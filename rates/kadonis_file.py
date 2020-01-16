@@ -11,20 +11,27 @@ Parameters
 Return
 ------
 """
-from pickle import UnpicklingError
 
 import numpy as np
 import pandas as pd
 
 from pathlib import Path
-from typing import Union, Tuple
+from typing import Union
 
 from rates.isotope import Isotope
 from rates.reaction import KadonisReaction
 
 
 class Kadonis:
-    """
+    """ Holds all the information from a Kadonis file
+
+    Parameters
+    ----------
+    file_path : Union[str, Path] = None
+        Path to reaction rate fiole in the Kadonis format, if None then
+        version must be specified.
+    version : float = {1, 0.3}
+        specifying a version loads a file from within the code.
 
     """
 
@@ -36,6 +43,8 @@ class Kadonis:
             file_path = Path(__file__).parent.parent / "Data/kadonis_rrates_1.0.txt"
         elif (file_path is None) and (version == 0.3):
             file_path = Path(__file__).parent.parent / "Data/kadonis_rrates_0.3.txt"
+        else:
+            raise Exception("File not specified")
 
         self.file_path = Path(file_path.parent / file_path.stem)
         try:
