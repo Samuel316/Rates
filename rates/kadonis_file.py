@@ -44,9 +44,9 @@ class Kadonis:
     ) -> None:
 
         if (file_path is None) and (version == 1):
-            file_path = Path(__file__).parent.parent / "Data/kadonis_rrates_1.0.txt"
+            file_path = Path(__file__).parent.parent / "data/kadonis_rrates_1.0.txt"
         elif (file_path is None) and (version == 0.3):
-            file_path = Path(__file__).parent.parent / "Data/kadonis_rrates_0.3.txt"
+            file_path = Path(__file__).parent.parent / "data/kadonis_rrates_0.3.txt"
         elif (file_path is None) and (version is None):
             raise Exception("File not specified")
 
