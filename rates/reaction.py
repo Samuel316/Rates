@@ -291,6 +291,7 @@ class KadonisReaction(Reaction):
         """
         if self != rate:
             print("Different reaction?")
+            raise Exception("Different reactions")
 
         return KadonisReaction(
             self.targets[0],

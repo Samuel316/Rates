@@ -140,6 +140,26 @@ class TestKadonisReaction:
                 == "n+N14 -> N15"
             )
 
+    def test_kadonis_rate(self):
+        rk = KadonisReaction("c12", [1] * 12, [1] * 12)
+        assert rk.rate(temp=30) == 1
+
+    def test_kadonis_error(self):
+        rk = KadonisReaction("c12", [1] * 12, [1] * 12)
+        assert rk.error(temp=30) == 1
+
+    def test_kadonis_diff(self):
+        rk1 = KadonisReaction("c12", [1] * 12, [1] * 12)
+        rk2 = KadonisReaction("c12", [2] * 12, [2] * 12)
+        assert rk1.diff(rk2).rr == KadonisReaction("c12", [-1] * 12, [-1] * 12).rr
+
+    def test_kadonis_diff_exception(self):
+        with pytest.raises(Exception):
+            rk1 = KadonisReaction("c13", [1] * 12, [1] * 12)
+            rk2 = KadonisReaction("c12", [2] * 12, [2] * 12)
+
+            rk1.diff(rk2)
+
     def test_kadonis_mpl_plot(self):
         rk = KadonisReaction("c12", [1] * 12, [1] * 12).mpl_plot().lines[0].get_xydata()
 
