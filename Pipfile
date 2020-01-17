@@ -14,7 +14,8 @@ numpy = "*"
 pandas = "*"
 matplotlib = "*"
 holoviews = "*"
-
+requests = "*"
+bs4 = "*"
 
 [requires]
 python_version = "3.7"
