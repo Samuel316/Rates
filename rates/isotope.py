@@ -157,7 +157,7 @@ class Isotope:
 
     symbol = dict((v, k) for k, v in charge_numbers.items())
 
-    full_name = {
+    _full_name = {
         "H": "Hydrogen",
         "He": "Helium",
         "Li": "Lithium",
@@ -622,6 +622,11 @@ class Isotope:
             and other.charge_number == self.charge_number
             and other.isomer == self.isomer
         )
+
+    @property
+    def full_name(self) -> str:
+
+        return f"{self._full_name[self.symbol[self.charge_number]]}-{self.mass_number}"
 
     @property
     def ppn_name(self) -> str:

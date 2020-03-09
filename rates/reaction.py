@@ -147,12 +147,17 @@ class ReaclibReaction(Reaction):
         t = np.logspace(-1, 1, 1000)
         if temp_unit is "GK":
             ax.loglog(
-                t, self.rate(t), label=self.label + " " + self.__str__(), **kwargs
+                t,
+                self.rate(t),
+                color="C1",
+                label=self.label + " " + self.__str__(),
+                **kwargs,
             )
         elif temp_unit is "KeV":
             ax.loglog(
                 Temperature(t).kev,
                 self.rate(t),
+                color="C1",
                 label=self.label + " " + self.__str__(),
                 **kwargs,
             )
@@ -239,6 +244,7 @@ class KadonisReaction(Reaction):
         temp: Tuple[real] = (5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100),
         temp_units: str = "KeV",
         label: str = "Kadonis",
+        colour: str = "C2",
     ):
         product = copy.deepcopy(Isotope.name(target))
         product.mass_number += 1
@@ -249,6 +255,7 @@ class KadonisReaction(Reaction):
         self.temperature = temp
         self.temp_unit = temp_units
         self.label = label
+        self.colour = colour
 
     def rate(self, temp: real):
         """
@@ -325,23 +332,28 @@ class KadonisReaction(Reaction):
                 Temperature(np.array(self.temperature), unit=self.temp_unit).gk,
                 self.rr,
                 yerr=self.err,
+                color=self.colour,
                 label="{0} {1}".format(self.label, self.__str__()),
                 **kwargs,
             )
             ax.scatter(
-                Temperature(np.array(self.temperature), unit=self.temp_unit).gk, self.rr
+                Temperature(np.array(self.temperature), unit=self.temp_unit).gk,
+                self.rr,
+                color=self.colour,
             )
         elif temp_unit is "KeV":
             ax.errorbar(
                 Temperature(np.array(self.temperature), unit=self.temp_unit).kev,
                 self.rr,
                 yerr=self.err,
+                color=self.colour,
                 label="{0} {1}".format(self.label, self.__str__()),
                 **kwargs,
             )
             ax.scatter(
                 Temperature(np.array(self.temperature), unit=self.temp_unit).kev,
                 self.rr,
+                color=self.colour,
             )
 
         ax.set_yscale("log")
