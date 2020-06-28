@@ -57,14 +57,18 @@ def macs(isotope, version=1.0):
 
     page = BeautifulSoup(page, "html.parser")
 
-    table = page.find("table", {"class": "history"})
-    table = table.findAll("td")
+    print(page.prettify())
 
-    macs = [t.get_text() for t in table]
+    table = page.find("table", {"class": "tbody"})
 
-    return macs
+    print(table)
+    # table = table.findAll("td")
+
+    # macs = [t.get_text() for t in table]
+
+    # return macs
 
 
 if __name__ == "__main__":
-    print((macs("o16", version=1)))
-    print((macs("o16", version=0.3)))
+    print(macs("o16", version=1))
+    # print(macs("o16", version=0.3))

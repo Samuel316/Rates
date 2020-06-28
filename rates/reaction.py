@@ -51,8 +51,8 @@ class Reaction:
         )
 
     def __eq__(self, other: object) -> bool:
-        if not isinstance(other, Reaction):
-            raise NotImplementedError
+        # if not isinstance(other, Reaction):
+        #    raise NotImplementedError
 
         return Counter([str(i) for i in self.targets]) == Counter(
             [str(i) for i in other.targets]
@@ -144,13 +144,13 @@ class ReaclibReaction(Reaction):
         """
         ax = ax or plt.gca()
 
-        t = np.logspace(-1, 1, 1000)
+        t = np.logspace(-2, 1, 1000)
         if temp_unit is "GK":
             ax.loglog(
                 t,
                 self.rate(t),
                 color="C1",
-                label=self.label + " " + self.__str__(),
+                label="Reaclib-" + self.label + " " + self.__str__(),
                 **kwargs,
             )
         elif temp_unit is "KeV":

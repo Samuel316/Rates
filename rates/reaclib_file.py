@@ -33,11 +33,18 @@ class Reaclib:
         if version == "PPN_2":
             file_path = Path(__file__).parent.parent / "data/ppn_reaclib_2.temp"
 
+        elif version == "2":
+            file_path = Path(__file__).parent.parent / "data/reaclib_2.temp"
+
         self.file_path = Path(file_path)
         self.df = pd.read_pickle(file_path)
 
-    def __getitem__(self, reaction: Reaction) -> str:
-        return "todo"  # make this return reactions
+    def __getitem__(self, reaction) -> str:
+        try:
+            assert len(self.df[self.df.Reaction == reaction].Reaction) == 1
+            return self.df[self.df.Reaction == reaction].Reaction.iloc[0]
+        except IndexError:
+            raise Exception(reaction + " Not found in file")
 
     def get_n_gamma(self, target: Union[Isotope, str]) -> ReaclibReaction:
         """Gets reaction from target Isotope, matches __getitem__ method in the Kadonis class
