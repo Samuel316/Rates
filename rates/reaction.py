@@ -61,7 +61,7 @@ class Reaction:
         )
 
     def mpl_plot(
-        self, ax: plt.axis = None, temp_unit: str = "Gk", **kwargs
+        self, ax: plt.axis = None, temp_unit: str = "GK", **kwargs
     ) -> plt.axis:
         """
 
@@ -75,7 +75,7 @@ class Reaction:
         ax.set_title("Reaction Rate")
         ax.set_ylabel(r"Rate ($cm^3\;mol^{-1}\;sec^{-1}$)")
 
-        if temp_unit is "Gk":
+        if temp_unit is "GK":
             ax.set_xlabel("Temperature ($GK$)")
 
         return ax
@@ -312,7 +312,7 @@ class KadonisReaction(Reaction):
             label=f"Diff of {self.label} and {rate.label}",
         )
 
-    def mpl_plot(self, ax: plt.axis = None, temp_unit: str = "Gk", **kwargs):
+    def mpl_plot(self, ax: plt.axis = None, temp_unit: str = "GK", **kwargs):
         """
 
         Parameters
@@ -327,7 +327,7 @@ class KadonisReaction(Reaction):
         """
         ax = ax or plt.gca()
 
-        if temp_unit is "Gk":
+        if temp_unit is "GK":
             ax.errorbar(
                 Temperature(np.array(self.temperature), unit=self.temp_unit).gk,
                 self.rr,
