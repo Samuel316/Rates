@@ -12,7 +12,7 @@ Return
 ------
 """
 
-from typing import Tuple, Union, Optional, Any
+from typing import Tuple, Union, Any
 
 import numpy as np
 
@@ -625,7 +625,12 @@ class Isotope:
 
     @property
     def full_name(self) -> str:
+        """ Full name of isotope in {Name}-{mass} format.
 
+        Returns
+        -------
+        str
+        """
         return f"{self._full_name[self.symbol[self.charge_number]]}-{self.mass_number}"
 
     @property
@@ -674,7 +679,6 @@ class Isotope:
         Union[Tuple[int, int], Tuple[int, int, bool]]
 
         """
-        num: Any
 
         if self.isomer or force_isomer:
             num = (self.charge_number, self.mass_number, self.isomer)
