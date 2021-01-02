@@ -67,9 +67,11 @@ class Reaction:
 
         Parameters
         ----------
-        ax :
-        temp_unit :
-        kwargs :
+        ax : mpl.Axis
+            mpl Axis to plot onto, if none provided get current axis is used.
+        temp_unit : str {"Gk", "KeV"}
+            Tempreture units for x axis.
+        kwargs : key word args for mpl.plot
         """
         ax = ax or plt.gca()
         ax.set_title("Reaction Rate")
@@ -82,7 +84,10 @@ class Reaction:
 
 
 class ReaclibReaction(Reaction):
-    """
+    """Reaclib type reaction data
+
+    Reaction format as found in reaclib file. A function when provided
+    with parameters provides the temperature dependant reaction rate.
 
     Parameters
     ----------
@@ -90,9 +95,18 @@ class ReaclibReaction(Reaction):
         List of all the target isotopes including n and p.
     products : List of str or Isotope
         List of all the product isotopes including n and p.
+    a_rates : List of floats
+        List of Reaclib parameters.
+    label : str
+        Label, used in plot.
+    color : str
+        Colour to use for plots
 
     Attributes
     ----------
+    rate
+    mpl_plot
+    reaclib_factory
     """
 
     def __init__(
@@ -101,20 +115,24 @@ class ReaclibReaction(Reaction):
         products: iso_list_type,
         a_rates: Sequence[real],
         label: str,
+        color: str = "C1",
     ) -> None:
         super().__init__(targets, products)
         self.a = a_rates
         self.label = label
+        self.color = color
 
     def rate(self, temp9: Union[real, np.asarray]):
         """
 
         Parameters
         ----------
-        temp9 :
+        temp9 : float
+            Temperature of reaction in T9
 
         Returns
         -------
+        float
 
         """
         return np.exp(
@@ -130,18 +148,7 @@ class ReaclibReaction(Reaction):
     def mpl_plot(
         self, ax: plt.axis = None, temp_unit: str = "GK", **kwargs
     ) -> plt.axis:
-        """
 
-        Parameters
-        ----------
-        ax :
-        temp_unit :
-        kwargs :
-
-        Returns
-        -------
-
-        """
         ax = ax or plt.gca()
 
         t = np.logspace(-2, 1, 1000)
@@ -149,7 +156,7 @@ class ReaclibReaction(Reaction):
             ax.loglog(
                 t,
                 self.rate(t),
-                color="C1",
+                color=self.color,
                 label="Reaclib-" + self.label + " " + self.__str__(),
                 **kwargs,
             )
@@ -157,7 +164,7 @@ class ReaclibReaction(Reaction):
             ax.loglog(
                 Temperature(t).kev,
                 self.rate(t),
-                color="C1",
+                color=self.color,
                 label=self.label + " " + self.__str__(),
                 **kwargs,
             )
@@ -180,10 +187,11 @@ class ReaclibReaction(Reaction):
 
         Parameters
         ----------
-        chapter :
-        ei :
-        a_rates :
-        label :
+        chapter : int
+            Defines the type of reaction
+        ei : list of str
+        a_rates : list of float
+        label : str
 
         Returns
         -------
@@ -239,8 +247,8 @@ class KadonisReaction(Reaction):
     def __init__(
         self,
         target: Union[str, Isotope],
-        rr: Iterable[real],
-        err: Iterable[real],
+        rr: List[real],
+        err: List[real],
         temp: Tuple[real] = (5, 8, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100),
         temp_units: str = "KeV",
         label: str = "Kadonis",
@@ -257,7 +265,7 @@ class KadonisReaction(Reaction):
         self.label = label
         self.colour = colour
 
-    def rate(self, temp: real):
+    def rate(self, temp: real) -> float:
         """
 
         Parameters
@@ -271,7 +279,7 @@ class KadonisReaction(Reaction):
         """
         return self.rr[self.temperature.index(temp)]
 
-    def error(self, temp: real):
+    def error(self, temp: real) -> float:
         """
 
         Parameters
@@ -285,15 +293,18 @@ class KadonisReaction(Reaction):
         """
         return self.err[self.temperature.index(temp)]
 
-    def diff(self, rate: "KadonisReaction"):
-        """
+    def diff(self, rate: "KadonisReaction") -> "KadonisReaction":
+        """Difference between two reactions
+
+        returns identical class where the reaction is the diff.
 
         Parameters
         ----------
-        rate :
+        rate : "KadonisReaction"
 
         Returns
         -------
+        "KadonisReaction"
 
         """
         if self != rate:
@@ -313,18 +324,7 @@ class KadonisReaction(Reaction):
         )
 
     def mpl_plot(self, ax: plt.axis = None, temp_unit: str = "GK", **kwargs):
-        """
 
-        Parameters
-        ----------
-        ax :
-        temp_unit :
-        kwargs :
-
-        Returns
-        -------
-
-        """
         ax = ax or plt.gca()
 
         if temp_unit is "GK":
