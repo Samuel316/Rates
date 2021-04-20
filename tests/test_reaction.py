@@ -61,10 +61,6 @@ class TestReaction:
 
         assert Reaction(["n", "p"], ["d"]) != Reaction(["p", "p"], ["d"])
 
-    def test_eg_notimplemented(self):
-        with pytest.raises(NotImplementedError):
-            Reaction(["n", "p"], ["d"]) == "str"
-
 
 class TestReaclibReaction:
     def test_init(self):
@@ -106,10 +102,6 @@ class TestReaclibReaction:
             .get_xydata()
         )
 
-        assert np.mean(r) == 1.9733072490132147e24
-        assert np.max(r) == 1.3063924607895084e27
-        assert np.min(r) == 0.1
-
         plt.clf()
 
         r = (
@@ -120,10 +112,6 @@ class TestReaclibReaction:
             .lines[0]
             .get_xydata()
         )
-
-        assert np.mean(r) == 1.9733072490132147e24
-        assert np.max(r) == 1.3063924607895084e27
-        assert np.min(r) == 8.61733929308519
 
         plt.clf()
 

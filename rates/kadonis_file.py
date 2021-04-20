@@ -35,7 +35,8 @@ class Kadonis:
 
     Attributes
     ----------
-
+    in_file
+    read_file
 
     """
 

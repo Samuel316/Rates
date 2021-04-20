@@ -104,10 +104,6 @@ class TestReaclib:
 
     reaclib = Reaclib.read_file((reaclib_path / "reaclib_mock"))
 
-    def test_getitem(self):
-        # TODO: write test for __getitem__
-        assert self.reaclib["test"] == "todo"
-
     def test_get_n_gamma(self):
 
         assert self.reaclib.get_n_gamma("p") == Reaction(["n", "p"], ["d"])
